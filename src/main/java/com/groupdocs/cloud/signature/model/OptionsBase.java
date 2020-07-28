@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="OptionsBase.java">
- *   Copyright (c) 2003-2019 Aspose Pty Ltd
+ *   Copyright (c) 2003-2020 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -43,62 +43,6 @@ import java.io.IOException;
  */
 @ApiModel(description = "Base container class for all possible options data")
 public class OptionsBase {
-  /**
-   * Specifies the type of document to process
-   */
-  @JsonAdapter(DocumentTypeEnum.Adapter.class)
-  public enum DocumentTypeEnum {
-    IMAGE("Image"),
-    
-    PDF("Pdf"),
-    
-    PRESENTATION("Presentation"),
-    
-    SPREADSHEET("Spreadsheet"),
-    
-    WORDPROCESSING("WordProcessing");
-
-    private String value;
-
-    DocumentTypeEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static DocumentTypeEnum fromValue(String text) {
-      for (DocumentTypeEnum b : DocumentTypeEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
-          return b;
-        }
-      }
-      return null;
-    }
-
-    public static class Adapter extends TypeAdapter<DocumentTypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final DocumentTypeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public DocumentTypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
-        return DocumentTypeEnum.fromValue(String.valueOf(value));
-      }
-    }
-  }
-
-  @SerializedName("documentType")
-  private DocumentTypeEnum documentType = null;
-
   /**
    * Specifies the signature type of processing
    */
@@ -167,24 +111,6 @@ public class OptionsBase {
 
   @SerializedName("pagesSetup")
   private PagesSetup pagesSetup = null;
-
-  public OptionsBase documentType(DocumentTypeEnum documentType) {
-    this.documentType = documentType;
-    return this;
-  }
-
-   /**
-   * Specifies the type of document to process
-   * @return documentType
-  **/
-  @ApiModelProperty(required = true, value = "Specifies the type of document to process")
-  public DocumentTypeEnum getDocumentType() {
-    return documentType;
-  }
-
-  public void setDocumentType(DocumentTypeEnum documentType) {
-    this.documentType = documentType;
-  }
 
   public OptionsBase signatureType(SignatureTypeEnum signatureType) {
     this.signatureType = signatureType;
@@ -268,8 +194,7 @@ public class OptionsBase {
       return false;
     }
     OptionsBase optionsBase = (OptionsBase) o;
-    return Objects.equals(this.documentType, optionsBase.documentType) &&
-        Objects.equals(this.signatureType, optionsBase.signatureType) &&
+    return Objects.equals(this.signatureType, optionsBase.signatureType) &&
         Objects.equals(this.page, optionsBase.page) &&
         Objects.equals(this.allPages, optionsBase.allPages) &&
         Objects.equals(this.pagesSetup, optionsBase.pagesSetup);
@@ -277,7 +202,7 @@ public class OptionsBase {
 
   @Override
   public int hashCode() {
-    return Objects.hash(documentType, signatureType, page, allPages, pagesSetup);
+    return Objects.hash(signatureType, page, allPages, pagesSetup);
   }
 
 
@@ -286,7 +211,6 @@ public class OptionsBase {
     StringBuilder sb = new StringBuilder();
     sb.append("class OptionsBase {\n");
     
-    sb.append("    documentType: ").append(toIndentedString(documentType)).append("\n");
     sb.append("    signatureType: ").append(toIndentedString(signatureType)).append("\n");
     sb.append("    page: ").append(toIndentedString(page)).append("\n");
     sb.append("    allPages: ").append(toIndentedString(allPages)).append("\n");

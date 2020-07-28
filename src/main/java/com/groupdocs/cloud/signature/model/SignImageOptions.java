@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="SignImageOptions.java">
- *   Copyright (c) 2003-2019 Aspose Pty Ltd
+ *   Copyright (c) 2003-2020 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -33,6 +33,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.groupdocs.cloud.signature.model.BorderLine;
 import com.groupdocs.cloud.signature.model.Padding;
 import com.groupdocs.cloud.signature.model.PagesSetup;
 import com.groupdocs.cloud.signature.model.SignOptions;
@@ -45,8 +46,8 @@ import java.io.IOException;
  */
 @ApiModel(description = "Represents the Image sign options")
 public class SignImageOptions extends SignOptions {
-  @SerializedName("imageGuid")
-  private String imageGuid = null;
+  @SerializedName("imageFilePath")
+  private String imageFilePath = null;
 
   @SerializedName("left")
   private Integer left = null;
@@ -172,8 +173,6 @@ public class SignImageOptions extends SignOptions {
    */
   @JsonAdapter(HorizontalAlignmentEnum.Adapter.class)
   public enum HorizontalAlignmentEnum {
-    DEFAULT("Default"),
-    
     NONE("None"),
     
     LEFT("Left"),
@@ -228,8 +227,6 @@ public class SignImageOptions extends SignOptions {
    */
   @JsonAdapter(VerticalAlignmentEnum.Adapter.class)
   public enum VerticalAlignmentEnum {
-    DEFAULT("Default"),
-    
     NONE("None"),
     
     TOP("Top"),
@@ -334,25 +331,28 @@ public class SignImageOptions extends SignOptions {
   @SerializedName("marginMeasureType")
   private MarginMeasureTypeEnum marginMeasureType = null;
 
-  @SerializedName("opacity")
-  private Double opacity = null;
+  @SerializedName("transparency")
+  private Double transparency = null;
 
-  public SignImageOptions imageGuid(String imageGuid) {
-    this.imageGuid = imageGuid;
+  @SerializedName("border")
+  private BorderLine border = null;
+
+  public SignImageOptions imageFilePath(String imageFilePath) {
+    this.imageFilePath = imageFilePath;
     return this;
   }
 
    /**
    * Gets or sets the signature image file name. This property is used only if ImageStream is not specified
-   * @return imageGuid
+   * @return imageFilePath
   **/
   @ApiModelProperty(value = "Gets or sets the signature image file name. This property is used only if ImageStream is not specified")
-  public String getImageGuid() {
-    return imageGuid;
+  public String getImageFilePath() {
+    return imageFilePath;
   }
 
-  public void setImageGuid(String imageGuid) {
-    this.imageGuid = imageGuid;
+  public void setImageFilePath(String imageFilePath) {
+    this.imageFilePath = imageFilePath;
   }
 
   public SignImageOptions left(Integer left) {
@@ -553,22 +553,40 @@ public class SignImageOptions extends SignOptions {
     this.marginMeasureType = marginMeasureType;
   }
 
-  public SignImageOptions opacity(Double opacity) {
-    this.opacity = opacity;
+  public SignImageOptions transparency(Double transparency) {
+    this.transparency = transparency;
     return this;
   }
 
    /**
-   * Gets or sets the additional opacity for sign image (value from 0.0 (clear) through 1.0 (opaque)). By default the value is 1.0
-   * @return opacity
+   * Gets or sets the signature transparency(value from 0.0 (opaque) through 1.0 (clear)). Default value is 0 (opaque).
+   * @return transparency
   **/
-  @ApiModelProperty(required = true, value = "Gets or sets the additional opacity for sign image (value from 0.0 (clear) through 1.0 (opaque)). By default the value is 1.0")
-  public Double getOpacity() {
-    return opacity;
+  @ApiModelProperty(required = true, value = "Gets or sets the signature transparency(value from 0.0 (opaque) through 1.0 (clear)). Default value is 0 (opaque).")
+  public Double getTransparency() {
+    return transparency;
   }
 
-  public void setOpacity(Double opacity) {
-    this.opacity = opacity;
+  public void setTransparency(Double transparency) {
+    this.transparency = transparency;
+  }
+
+  public SignImageOptions border(BorderLine border) {
+    this.border = border;
+    return this;
+  }
+
+   /**
+   * Gets or sets the signature border properties
+   * @return border
+  **/
+  @ApiModelProperty(value = "Gets or sets the signature border properties")
+  public BorderLine getBorder() {
+    return border;
+  }
+
+  public void setBorder(BorderLine border) {
+    this.border = border;
   }
 
 
@@ -581,7 +599,7 @@ public class SignImageOptions extends SignOptions {
       return false;
     }
     SignImageOptions signImageOptions = (SignImageOptions) o;
-    return Objects.equals(this.imageGuid, signImageOptions.imageGuid) &&
+    return Objects.equals(this.imageFilePath, signImageOptions.imageFilePath) &&
         Objects.equals(this.left, signImageOptions.left) &&
         Objects.equals(this.top, signImageOptions.top) &&
         Objects.equals(this.width, signImageOptions.width) &&
@@ -593,13 +611,14 @@ public class SignImageOptions extends SignOptions {
         Objects.equals(this.verticalAlignment, signImageOptions.verticalAlignment) &&
         Objects.equals(this.margin, signImageOptions.margin) &&
         Objects.equals(this.marginMeasureType, signImageOptions.marginMeasureType) &&
-        Objects.equals(this.opacity, signImageOptions.opacity) &&
+        Objects.equals(this.transparency, signImageOptions.transparency) &&
+        Objects.equals(this.border, signImageOptions.border) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(imageGuid, left, top, width, height, locationMeasureType, sizeMeasureType, rotationAngle, horizontalAlignment, verticalAlignment, margin, marginMeasureType, opacity, super.hashCode());
+    return Objects.hash(imageFilePath, left, top, width, height, locationMeasureType, sizeMeasureType, rotationAngle, horizontalAlignment, verticalAlignment, margin, marginMeasureType, transparency, border, super.hashCode());
   }
 
 
@@ -608,7 +627,7 @@ public class SignImageOptions extends SignOptions {
     StringBuilder sb = new StringBuilder();
     sb.append("class SignImageOptions {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    imageGuid: ").append(toIndentedString(imageGuid)).append("\n");
+    sb.append("    imageFilePath: ").append(toIndentedString(imageFilePath)).append("\n");
     sb.append("    left: ").append(toIndentedString(left)).append("\n");
     sb.append("    top: ").append(toIndentedString(top)).append("\n");
     sb.append("    width: ").append(toIndentedString(width)).append("\n");
@@ -620,7 +639,8 @@ public class SignImageOptions extends SignOptions {
     sb.append("    verticalAlignment: ").append(toIndentedString(verticalAlignment)).append("\n");
     sb.append("    margin: ").append(toIndentedString(margin)).append("\n");
     sb.append("    marginMeasureType: ").append(toIndentedString(marginMeasureType)).append("\n");
-    sb.append("    opacity: ").append(toIndentedString(opacity)).append("\n");
+    sb.append("    transparency: ").append(toIndentedString(transparency)).append("\n");
+    sb.append("    border: ").append(toIndentedString(border)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd">
- *   Copyright (c) 2003-2019 Aspose Pty Ltd
+ *   Copyright (c) 2003-2020 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,13 +30,8 @@ package com.groupdocs.cloud.signature.api.sign;
 import com.groupdocs.cloud.signature.api.*;
 import com.groupdocs.cloud.signature.client.ApiException;
 import com.groupdocs.cloud.signature.model.*;
-import com.groupdocs.cloud.signature.model.OptionsBase.DocumentTypeEnum;
 import com.groupdocs.cloud.signature.model.OptionsBase.SignatureTypeEnum;
-import com.groupdocs.cloud.signature.model.SignImageOptions.HorizontalAlignmentEnum;
-import com.groupdocs.cloud.signature.model.SignImageOptions.LocationMeasureTypeEnum;
-import com.groupdocs.cloud.signature.model.SignImageOptions.MarginMeasureTypeEnum;
-import com.groupdocs.cloud.signature.model.SignImageOptions.SizeMeasureTypeEnum;
-import com.groupdocs.cloud.signature.model.SignImageOptions.VerticalAlignmentEnum;
+import com.groupdocs.cloud.signature.model.SignImageOptions.*;
 import com.groupdocs.cloud.signature.model.requests.*;
 
 import static org.junit.Assert.*;
@@ -61,7 +56,6 @@ public class TestsSignDigital extends BaseApiTest {
 
         SignDigitalOptions options = new SignDigitalOptions();
         PopulateOptions(options);
-        options.setDocumentType(DocumentTypeEnum.PDF);
         SaveOptions saveOptions = new SaveOptions();
         saveOptions.setOutputFilePath(signedFileName);
         SignSettings signSettings = new SignSettings();
@@ -94,7 +88,6 @@ public class TestsSignDigital extends BaseApiTest {
 
         SignDigitalOptions options = new SignDigitalOptions();
         PopulateOptions(options);
-        options.setDocumentType(DocumentTypeEnum.SPREADSHEET);
         SaveOptions saveOptions = new SaveOptions();
         saveOptions.setOutputFilePath(signedFileName);
         SignSettings signSettings = new SignSettings();
@@ -121,7 +114,6 @@ public class TestsSignDigital extends BaseApiTest {
 
         SignDigitalOptions options = new SignDigitalOptions();
         PopulateOptions(options);
-        options.setDocumentType(DocumentTypeEnum.WORDPROCESSING);
         SaveOptions saveOptions = new SaveOptions();
         saveOptions.setOutputFilePath(signedFileName);
         SignSettings signSettings = new SignSettings();
@@ -143,8 +135,8 @@ public class TestsSignDigital extends BaseApiTest {
         options.setSignatureType(SignatureTypeEnum.DIGITAL);
 
         // set signature properties
-        options.setImageGuid("Additional\\signature_01.jpg");
-        options.setCertificateGuid("Additional\\SherlockHolmes.pfx");
+        options.setImageFilePath("Additional\\signature_01.jpg");
+        options.setCertificateFilePath("Additional\\SherlockHolmes.pfx");
         options.setPassword("1234567890");
 
         // set signature position on a page
@@ -163,7 +155,7 @@ public class TestsSignDigital extends BaseApiTest {
         options.setMarginMeasureType(MarginMeasureTypeEnum.PIXELS);
 
         // set signature appearance
-        options.setOpacity(0.8);
+        options.setTransparency(0.8);
 
         //set pages for signing (each of these page settings could be used singly)
         options.setPage(1);

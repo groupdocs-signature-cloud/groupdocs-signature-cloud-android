@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd">
- *   Copyright (c) 2003-2019 Aspose Pty Ltd
+ *   Copyright (c) 2003-2020 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,13 +30,8 @@ package com.groupdocs.cloud.signature.api.sign;
 import com.groupdocs.cloud.signature.api.*;
 import com.groupdocs.cloud.signature.client.ApiException;
 import com.groupdocs.cloud.signature.model.*;
-import com.groupdocs.cloud.signature.model.OptionsBase.DocumentTypeEnum;
 import com.groupdocs.cloud.signature.model.OptionsBase.SignatureTypeEnum;
-import com.groupdocs.cloud.signature.model.SignImageOptions.HorizontalAlignmentEnum;
-import com.groupdocs.cloud.signature.model.SignImageOptions.LocationMeasureTypeEnum;
-import com.groupdocs.cloud.signature.model.SignImageOptions.MarginMeasureTypeEnum;
-import com.groupdocs.cloud.signature.model.SignImageOptions.SizeMeasureTypeEnum;
-import com.groupdocs.cloud.signature.model.SignImageOptions.VerticalAlignmentEnum;
+import com.groupdocs.cloud.signature.model.SignImageOptions.*;
 import com.groupdocs.cloud.signature.model.requests.*;
 
 import static org.junit.Assert.*;
@@ -55,7 +50,6 @@ public class TestsSignStamp extends BaseApiTest {
 
         SignStampOptions options = new SignStampOptions();
         PopulateOptions(options);
-        options.setDocumentType(DocumentTypeEnum.IMAGE);
         SaveOptions saveOptions = new SaveOptions();
         saveOptions.setOutputFilePath(signedFileName);
         SignSettings signSettings = new SignSettings();
@@ -82,7 +76,6 @@ public class TestsSignStamp extends BaseApiTest {
 
         SignStampOptions options = new SignStampOptions();
         PopulateOptions(options);
-        options.setDocumentType(DocumentTypeEnum.PDF);
         SaveOptions saveOptions = new SaveOptions();
         saveOptions.setOutputFilePath(signedFileName);
         SignSettings signSettings = new SignSettings();
@@ -109,7 +102,6 @@ public class TestsSignStamp extends BaseApiTest {
 
         SignStampOptions options = new SignStampOptions();
         PopulateOptions(options);
-        options.setDocumentType(DocumentTypeEnum.PRESENTATION);
         SaveOptions saveOptions = new SaveOptions();
         saveOptions.setOutputFilePath(signedFileName);
         SignSettings signSettings = new SignSettings();
@@ -136,7 +128,6 @@ public class TestsSignStamp extends BaseApiTest {
 
         SignStampOptions options = new SignStampOptions();
         PopulateOptions(options);
-        options.setDocumentType(DocumentTypeEnum.SPREADSHEET);
         SaveOptions saveOptions = new SaveOptions();
         saveOptions.setOutputFilePath(signedFileName);
         SignSettings signSettings = new SignSettings();
@@ -163,7 +154,6 @@ public class TestsSignStamp extends BaseApiTest {
 
         SignStampOptions options = new SignStampOptions();
         PopulateOptions(options);
-        options.setDocumentType(DocumentTypeEnum.WORDPROCESSING);
         SaveOptions saveOptions = new SaveOptions();
         saveOptions.setOutputFilePath(signedFileName);
         SignSettings signSettings = new SignSettings();
@@ -198,7 +188,7 @@ public class TestsSignStamp extends BaseApiTest {
         ghostWhiteColor.setWeb("GhostWhite");
 
         // set signature properties
-        options.setImageGuid("Additional\\JohnSmithSign.png");
+        options.setImageFilePath("Additional\\JohnSmithSign.png");
 
         // set signature position on a page
         options.setLeft(100);
@@ -219,7 +209,7 @@ public class TestsSignStamp extends BaseApiTest {
         options.setBackgroundColor(cornflowerBlueColor);
         options.setBackgroundColorCropType(SignStampOptions.BackgroundColorCropTypeEnum.INNERAREA);
         options.setBackgroundImageCropType(SignStampOptions.BackgroundImageCropTypeEnum.MIDDLEAREA);
-        options.setOpacity(0.8);
+        options.setTransparency(0.8);
 
         //Outer line
         StampLine outerLine = new StampLine();

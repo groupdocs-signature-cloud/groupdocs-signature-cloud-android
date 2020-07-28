@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="BorderLine.java">
- *   Copyright (c) 2003-2019 Aspose Pty Ltd
+ *   Copyright (c) 2003-2020 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -48,8 +48,6 @@ public class BorderLine {
    */
   @JsonAdapter(StyleEnum.Adapter.class)
   public enum StyleEnum {
-    DEFAULT("Default"),
-    
     SOLID("Solid"),
     
     SHORTDASH("ShortDash"),
@@ -70,7 +68,17 @@ public class BorderLine {
     
     LONGDASHDOT("LongDashDot"),
     
-    LONGDASHDOTDOT("LongDashDotDot");
+    LONGDASHDOTDOT("LongDashDotDot"),
+    
+    ROUNDDOT("RoundDot"),
+    
+    SQUAREDOT("SquareDot"),
+    
+    DASHDOTDOT("DashDotDot"),
+    
+    DASHLONGDASH("DashLongDash"),
+    
+    DASHLONGDASHDOT("DashLongDashDot");
 
     private String value;
 
@@ -121,6 +129,9 @@ public class BorderLine {
 
   @SerializedName("color")
   private Color color = null;
+
+  @SerializedName("visible")
+  private Boolean visible = null;
 
   public BorderLine style(StyleEnum style) {
     this.style = style;
@@ -194,6 +205,24 @@ public class BorderLine {
     this.color = color;
   }
 
+  public BorderLine visible(Boolean visible) {
+    this.visible = visible;
+    return this;
+  }
+
+   /**
+   * Gets or sets the border visibility
+   * @return visible
+  **/
+  @ApiModelProperty(required = true, value = "Gets or sets the border visibility")
+  public Boolean getVisible() {
+    return visible;
+  }
+
+  public void setVisible(Boolean visible) {
+    this.visible = visible;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -207,12 +236,13 @@ public class BorderLine {
     return Objects.equals(this.style, borderLine.style) &&
         Objects.equals(this.transparency, borderLine.transparency) &&
         Objects.equals(this.weight, borderLine.weight) &&
-        Objects.equals(this.color, borderLine.color);
+        Objects.equals(this.color, borderLine.color) &&
+        Objects.equals(this.visible, borderLine.visible);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(style, transparency, weight, color);
+    return Objects.hash(style, transparency, weight, color, visible);
   }
 
 
@@ -225,6 +255,7 @@ public class BorderLine {
     sb.append("    transparency: ").append(toIndentedString(transparency)).append("\n");
     sb.append("    weight: ").append(toIndentedString(weight)).append("\n");
     sb.append("    color: ").append(toIndentedString(color)).append("\n");
+    sb.append("    visible: ").append(toIndentedString(visible)).append("\n");
     sb.append("}");
     return sb.toString();
   }

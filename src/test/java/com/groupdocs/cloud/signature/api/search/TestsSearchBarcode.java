@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd">
- *   Copyright (c) 2003-2019 Aspose Pty Ltd
+ *   Copyright (c) 2003-2020 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,7 +30,6 @@ package com.groupdocs.cloud.signature.api.search;
 import com.groupdocs.cloud.signature.api.*;
 import com.groupdocs.cloud.signature.client.ApiException;
 import com.groupdocs.cloud.signature.model.*;
-import com.groupdocs.cloud.signature.model.OptionsBase.DocumentTypeEnum;
 import com.groupdocs.cloud.signature.model.OptionsBase.SignatureTypeEnum;
 import com.groupdocs.cloud.signature.model.SearchBarcodeOptions.MatchTypeEnum;
 import com.groupdocs.cloud.signature.model.requests.*;
@@ -49,7 +48,6 @@ public class TestsSearchBarcode extends BaseApiTest {
         FileInfo fileInfo = testFile.ToFileInfo();
         SearchBarcodeOptions options = new SearchBarcodeOptions();
         PopulateOptions(options);
-        options.setDocumentType(DocumentTypeEnum.IMAGE);
         SearchSettings searchSettings = new SearchSettings();
         searchSettings.setFileInfo(fileInfo);
         searchSettings.addOptionsItem(options);
@@ -69,7 +67,6 @@ public class TestsSearchBarcode extends BaseApiTest {
         FileInfo fileInfo = testFile.ToFileInfo();
         SearchBarcodeOptions options = new SearchBarcodeOptions();
         PopulateOptions(options);
-        options.setDocumentType(DocumentTypeEnum.PDF);
         SearchSettings searchSettings = new SearchSettings();
         searchSettings.setFileInfo(fileInfo);
         searchSettings.addOptionsItem(options);
@@ -89,7 +86,6 @@ public class TestsSearchBarcode extends BaseApiTest {
         FileInfo fileInfo = testFile.ToFileInfo();
         SearchBarcodeOptions options = new SearchBarcodeOptions();
         PopulateOptions(options);
-        options.setDocumentType(DocumentTypeEnum.PRESENTATION);
         SearchSettings searchSettings = new SearchSettings();
         searchSettings.setFileInfo(fileInfo);
         searchSettings.addOptionsItem(options);
@@ -109,7 +105,6 @@ public class TestsSearchBarcode extends BaseApiTest {
         FileInfo fileInfo = testFile.ToFileInfo();
         SearchBarcodeOptions options = new SearchBarcodeOptions();
         PopulateOptions(options);
-        options.setDocumentType(DocumentTypeEnum.SPREADSHEET);
         SearchSettings searchSettings = new SearchSettings();
         searchSettings.setFileInfo(fileInfo);
         searchSettings.addOptionsItem(options);
@@ -129,7 +124,6 @@ public class TestsSearchBarcode extends BaseApiTest {
         FileInfo fileInfo = testFile.ToFileInfo();
         SearchBarcodeOptions options = new SearchBarcodeOptions();
         PopulateOptions(options);
-        options.setDocumentType(DocumentTypeEnum.WORDPROCESSING);
         SearchSettings searchSettings = new SearchSettings();
         searchSettings.setFileInfo(fileInfo);
         searchSettings.addOptionsItem(options);

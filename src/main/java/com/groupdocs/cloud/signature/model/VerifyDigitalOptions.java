@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="VerifyDigitalOptions.java">
- *   Copyright (c) 2003-2019 Aspose Pty Ltd
+ *   Copyright (c) 2003-2020 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -48,8 +48,8 @@ public class VerifyDigitalOptions extends VerifyOptions {
   @SerializedName("password")
   private String password = null;
 
-  @SerializedName("certificateGuid")
-  private String certificateGuid = null;
+  @SerializedName("certificateFilePath")
+  private String certificateFilePath = null;
 
   @SerializedName("comments")
   private String comments = null;
@@ -87,22 +87,22 @@ public class VerifyDigitalOptions extends VerifyOptions {
     this.password = password;
   }
 
-  public VerifyDigitalOptions certificateGuid(String certificateGuid) {
-    this.certificateGuid = certificateGuid;
+  public VerifyDigitalOptions certificateFilePath(String certificateFilePath) {
+    this.certificateFilePath = certificateFilePath;
     return this;
   }
 
    /**
    * File Guid of Digital Certificate
-   * @return certificateGuid
+   * @return certificateFilePath
   **/
   @ApiModelProperty(value = "File Guid of Digital Certificate")
-  public String getCertificateGuid() {
-    return certificateGuid;
+  public String getCertificateFilePath() {
+    return certificateFilePath;
   }
 
-  public void setCertificateGuid(String certificateGuid) {
-    this.certificateGuid = certificateGuid;
+  public void setCertificateFilePath(String certificateFilePath) {
+    this.certificateFilePath = certificateFilePath;
   }
 
   public VerifyDigitalOptions comments(String comments) {
@@ -224,7 +224,7 @@ public class VerifyDigitalOptions extends VerifyOptions {
     }
     VerifyDigitalOptions verifyDigitalOptions = (VerifyDigitalOptions) o;
     return Objects.equals(this.password, verifyDigitalOptions.password) &&
-        Objects.equals(this.certificateGuid, verifyDigitalOptions.certificateGuid) &&
+        Objects.equals(this.certificateFilePath, verifyDigitalOptions.certificateFilePath) &&
         Objects.equals(this.comments, verifyDigitalOptions.comments) &&
         Objects.equals(this.signDateTimeFrom, verifyDigitalOptions.signDateTimeFrom) &&
         Objects.equals(this.signDateTimeTo, verifyDigitalOptions.signDateTimeTo) &&
@@ -236,7 +236,7 @@ public class VerifyDigitalOptions extends VerifyOptions {
 
   @Override
   public int hashCode() {
-    return Objects.hash(password, certificateGuid, comments, signDateTimeFrom, signDateTimeTo, reason, contact, location, super.hashCode());
+    return Objects.hash(password, certificateFilePath, comments, signDateTimeFrom, signDateTimeTo, reason, contact, location, super.hashCode());
   }
 
 
@@ -246,7 +246,7 @@ public class VerifyDigitalOptions extends VerifyOptions {
     sb.append("class VerifyDigitalOptions {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
-    sb.append("    certificateGuid: ").append(toIndentedString(certificateGuid)).append("\n");
+    sb.append("    certificateFilePath: ").append(toIndentedString(certificateFilePath)).append("\n");
     sb.append("    comments: ").append(toIndentedString(comments)).append("\n");
     sb.append("    signDateTimeFrom: ").append(toIndentedString(signDateTimeFrom)).append("\n");
     sb.append("    signDateTimeTo: ").append(toIndentedString(signDateTimeTo)).append("\n");

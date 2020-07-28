@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd">
- *   Copyright (c) 2003-2019 Aspose Pty Ltd
+ *   Copyright (c) 2003-2020 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,15 +30,9 @@ package com.groupdocs.cloud.signature.api.sign;
 import com.groupdocs.cloud.signature.api.*;
 import com.groupdocs.cloud.signature.client.ApiException;
 import com.groupdocs.cloud.signature.model.*;
-import com.groupdocs.cloud.signature.model.OptionsBase.DocumentTypeEnum;
 import com.groupdocs.cloud.signature.model.OptionsBase.SignatureTypeEnum;
-import com.groupdocs.cloud.signature.model.SignTextOptions.BorderDashStyleEnum;
-import com.groupdocs.cloud.signature.model.SignTextOptions.HorizontalAlignmentEnum;
-import com.groupdocs.cloud.signature.model.SignTextOptions.LocationMeasureTypeEnum;
-import com.groupdocs.cloud.signature.model.SignTextOptions.MarginMeasureTypeEnum;
-import com.groupdocs.cloud.signature.model.SignTextOptions.SizeMeasureTypeEnum;
-import com.groupdocs.cloud.signature.model.SignTextOptions.StretchEnum;
-import com.groupdocs.cloud.signature.model.SignTextOptions.VerticalAlignmentEnum;
+import com.groupdocs.cloud.signature.model.SignTextOptions.*;
+import com.groupdocs.cloud.signature.model.BorderLine.*;
 import com.groupdocs.cloud.signature.model.requests.*;
 
 import static org.junit.Assert.*;
@@ -57,7 +51,6 @@ public class TestsSignText extends BaseApiTest {
 
         SignTextOptions options = new SignTextOptions();
         PopulateOptions(options);
-        options.setDocumentType(DocumentTypeEnum.IMAGE);
         SaveOptions saveOptions = new SaveOptions();
         saveOptions.setOutputFilePath(signedFileName);
         SignSettings signSettings = new SignSettings();
@@ -84,7 +77,6 @@ public class TestsSignText extends BaseApiTest {
 
         SignTextOptions options = new SignTextOptions();
         PopulateOptions(options);
-        options.setDocumentType(DocumentTypeEnum.PDF);
         SaveOptions saveOptions = new SaveOptions();
         saveOptions.setOutputFilePath(signedFileName);
         SignSettings signSettings = new SignSettings();
@@ -111,7 +103,6 @@ public class TestsSignText extends BaseApiTest {
 
         SignTextOptions options = new SignTextOptions();
         PopulateOptions(options);
-        options.setDocumentType(DocumentTypeEnum.PRESENTATION);
         SaveOptions saveOptions = new SaveOptions();
         saveOptions.setOutputFilePath(signedFileName);
         SignSettings signSettings = new SignSettings();
@@ -138,7 +129,6 @@ public class TestsSignText extends BaseApiTest {
 
         SignTextOptions options = new SignTextOptions();
         PopulateOptions(options);
-        options.setDocumentType(DocumentTypeEnum.SPREADSHEET);
         SaveOptions saveOptions = new SaveOptions();
         saveOptions.setOutputFilePath(signedFileName);
         SignSettings signSettings = new SignSettings();
@@ -165,7 +155,6 @@ public class TestsSignText extends BaseApiTest {
 
         SignTextOptions options = new SignTextOptions();
         PopulateOptions(options);
-        options.setDocumentType(DocumentTypeEnum.WORDPROCESSING);
         SaveOptions saveOptions = new SaveOptions();
         saveOptions.setOutputFilePath(signedFileName);
         SignSettings signSettings = new SignSettings();
@@ -211,12 +200,16 @@ public class TestsSignText extends BaseApiTest {
         options.setForeColor(foreColor);
         Color borderColor = new Color();
         borderColor.setWeb("DarkOrange");
-        options.setBorderColor(borderColor);
+
+        BorderLine border = new BorderLine();
+        border.setColor(borderColor);
+        border.setVisible(true);
+        border.setStyle(StyleEnum.DASH);
+        options.setBorder(border);
+
         Color backgroundColor = new Color();
         backgroundColor.setWeb("DarkOrange");
         options.setBackgroundColor(backgroundColor);
-        options.setBorderVisiblity(true);
-        options.setBorderDashStyle(BorderDashStyleEnum.DASH);
 
         //set pages for signing (each of these page settings could be used singly)
         options.setPage(1);

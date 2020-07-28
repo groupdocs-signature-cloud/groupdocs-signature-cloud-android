@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd">
- *   Copyright (c) 2003-2019 Aspose Pty Ltd
+ *   Copyright (c) 2003-2020 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,7 +30,6 @@ package com.groupdocs.cloud.signature.api.sign;
 import com.groupdocs.cloud.signature.api.*;
 import com.groupdocs.cloud.signature.client.ApiException;
 import com.groupdocs.cloud.signature.model.*;
-import com.groupdocs.cloud.signature.model.OptionsBase.DocumentTypeEnum;
 import com.groupdocs.cloud.signature.model.requests.*;
 
 import static org.junit.Assert.*;
@@ -49,29 +48,24 @@ public class TestsSignCollection extends BaseApiTest {
 
         SignBarcodeOptions barcodeOptions = new SignBarcodeOptions();
         TestsSignBarcode.PopulateOptions(barcodeOptions);
-        barcodeOptions.setDocumentType(DocumentTypeEnum.IMAGE);
         barcodeOptions.setTop(0);
 
         //Digital signature is not supported for Images.
 
         SignImageOptions imageOptions = new SignImageOptions();
         TestsSignImage.PopulateOptions(imageOptions);
-        imageOptions.setDocumentType(DocumentTypeEnum.IMAGE);
         imageOptions.setTop(barcodeOptions.getTop() + barcodeOptions.getHeight() + 20);
 
         SignQRCodeOptions qrCodeOptions = new SignQRCodeOptions();
         TestsSignQRCode.PopulateOptions(qrCodeOptions);
-        qrCodeOptions.setDocumentType(DocumentTypeEnum.IMAGE);
         qrCodeOptions.setTop(imageOptions.getTop() + imageOptions.getHeight() + 20);
 
         SignStampOptions stampOptions = new SignStampOptions();
         TestsSignStamp.PopulateOptions(stampOptions);
-        stampOptions.setDocumentType(DocumentTypeEnum.IMAGE);
         stampOptions.setTop(qrCodeOptions.getTop() + qrCodeOptions.getHeight() + 20);
 
         SignTextOptions textOptions = new SignTextOptions();
         TestsSignText.PopulateOptions(textOptions);
-        textOptions.setDocumentType(DocumentTypeEnum.IMAGE);
         textOptions.setTop(stampOptions.getTop() + stampOptions.getHeight() + 20);
 
         SignSettings signSettings = new SignSettings();
@@ -105,32 +99,26 @@ public class TestsSignCollection extends BaseApiTest {
 
         SignBarcodeOptions barcodeOptions = new SignBarcodeOptions();
         TestsSignBarcode.PopulateOptions(barcodeOptions);
-        barcodeOptions.setDocumentType(DocumentTypeEnum.PDF);
         barcodeOptions.setTop(0);
 
         SignDigitalOptions digitalOptions = new SignDigitalOptions();
         TestsSignDigital.PopulateOptions(digitalOptions);
-        digitalOptions.setDocumentType(DocumentTypeEnum.PDF);
         digitalOptions.setTop(barcodeOptions.getTop() + barcodeOptions.getHeight() + 20);
 
         SignImageOptions imageOptions = new SignImageOptions();
         TestsSignImage.PopulateOptions(imageOptions);
-        imageOptions.setDocumentType(DocumentTypeEnum.PDF);
         imageOptions.setTop(digitalOptions.getTop() + digitalOptions.getHeight() + 20);
 
         SignQRCodeOptions qrCodeOptions = new SignQRCodeOptions();
         TestsSignQRCode.PopulateOptions(qrCodeOptions);
-        qrCodeOptions.setDocumentType(DocumentTypeEnum.PDF);
         qrCodeOptions.setTop(imageOptions.getTop() + imageOptions.getHeight() + 20);
 
         SignStampOptions stampOptions = new SignStampOptions();
         TestsSignStamp.PopulateOptions(stampOptions);
-        stampOptions.setDocumentType(DocumentTypeEnum.PDF);
         stampOptions.setTop(qrCodeOptions.getTop() + qrCodeOptions.getHeight() + 20);
 
         SignTextOptions textOptions = new SignTextOptions();
         TestsSignText.PopulateOptions(textOptions);
-        textOptions.setDocumentType(DocumentTypeEnum.PDF);
         textOptions.setTop(stampOptions.getTop() + stampOptions.getHeight() + 20);
 
         SignSettings signSettings = new SignSettings();
@@ -165,29 +153,24 @@ public class TestsSignCollection extends BaseApiTest {
 
         SignBarcodeOptions barcodeOptions = new SignBarcodeOptions();
         TestsSignBarcode.PopulateOptions(barcodeOptions);
-        barcodeOptions.setDocumentType(DocumentTypeEnum.PRESENTATION);
         barcodeOptions.setTop(0);
 
         //Digital signature is not supported for Presentations.
 
         SignImageOptions imageOptions = new SignImageOptions();
         TestsSignImage.PopulateOptions(imageOptions);
-        imageOptions.setDocumentType(DocumentTypeEnum.PRESENTATION);
         imageOptions.setTop(barcodeOptions.getTop() + barcodeOptions.getHeight() + 20);
 
         SignQRCodeOptions qrCodeOptions = new SignQRCodeOptions();
         TestsSignQRCode.PopulateOptions(qrCodeOptions);
-        qrCodeOptions.setDocumentType(DocumentTypeEnum.PRESENTATION);
         qrCodeOptions.setTop(imageOptions.getTop() + imageOptions.getHeight() + 20);
 
         SignStampOptions stampOptions = new SignStampOptions();
         TestsSignStamp.PopulateOptions(stampOptions);
-        stampOptions.setDocumentType(DocumentTypeEnum.PRESENTATION);
         stampOptions.setTop(qrCodeOptions.getTop() + qrCodeOptions.getHeight() + 20);
 
         SignTextOptions textOptions = new SignTextOptions();
         TestsSignText.PopulateOptions(textOptions);
-        textOptions.setDocumentType(DocumentTypeEnum.PRESENTATION);
         textOptions.setTop(stampOptions.getTop() + stampOptions.getHeight() + 20);
 
         SignSettings signSettings = new SignSettings();
@@ -221,32 +204,26 @@ public class TestsSignCollection extends BaseApiTest {
 
         SignBarcodeOptions barcodeOptions = new SignBarcodeOptions();
         TestsSignBarcode.PopulateOptions(barcodeOptions);
-        barcodeOptions.setDocumentType(DocumentTypeEnum.SPREADSHEET);
         barcodeOptions.setTop(0);
 
         SignDigitalOptions digitalOptions = new SignDigitalOptions();
         TestsSignDigital.PopulateOptions(digitalOptions);
-        digitalOptions.setDocumentType(DocumentTypeEnum.SPREADSHEET);
         digitalOptions.setTop(barcodeOptions.getTop() + barcodeOptions.getHeight() + 20);
 
         SignImageOptions imageOptions = new SignImageOptions();
         TestsSignImage.PopulateOptions(imageOptions);
-        imageOptions.setDocumentType(DocumentTypeEnum.SPREADSHEET);
         imageOptions.setTop(digitalOptions.getTop() + digitalOptions.getHeight() + 20);
 
         SignQRCodeOptions qrCodeOptions = new SignQRCodeOptions();
         TestsSignQRCode.PopulateOptions(qrCodeOptions);
-        qrCodeOptions.setDocumentType(DocumentTypeEnum.SPREADSHEET);
         qrCodeOptions.setTop(imageOptions.getTop() + imageOptions.getHeight() + 20);
 
         SignStampOptions stampOptions = new SignStampOptions();
         TestsSignStamp.PopulateOptions(stampOptions);
-        stampOptions.setDocumentType(DocumentTypeEnum.SPREADSHEET);
         stampOptions.setTop(qrCodeOptions.getTop() + qrCodeOptions.getHeight() + 20);
 
         SignTextOptions textOptions = new SignTextOptions();
         TestsSignText.PopulateOptions(textOptions);
-        textOptions.setDocumentType(DocumentTypeEnum.SPREADSHEET);
         textOptions.setTop(stampOptions.getTop() + stampOptions.getHeight() + 20);
 
         SignSettings signSettings = new SignSettings();
@@ -281,32 +258,26 @@ public class TestsSignCollection extends BaseApiTest {
 
         SignBarcodeOptions barcodeOptions = new SignBarcodeOptions();
         TestsSignBarcode.PopulateOptions(barcodeOptions);
-        barcodeOptions.setDocumentType(DocumentTypeEnum.WORDPROCESSING);
         barcodeOptions.setTop(0);
 
         SignDigitalOptions digitalOptions = new SignDigitalOptions();
         TestsSignDigital.PopulateOptions(digitalOptions);
-        digitalOptions.setDocumentType(DocumentTypeEnum.WORDPROCESSING);
         digitalOptions.setTop(barcodeOptions.getTop() + barcodeOptions.getHeight() + 20);
 
         SignImageOptions imageOptions = new SignImageOptions();
         TestsSignImage.PopulateOptions(imageOptions);
-        imageOptions.setDocumentType(DocumentTypeEnum.WORDPROCESSING);
         imageOptions.setTop(digitalOptions.getTop() + digitalOptions.getHeight() + 20);
 
         SignQRCodeOptions qrCodeOptions = new SignQRCodeOptions();
         TestsSignQRCode.PopulateOptions(qrCodeOptions);
-        qrCodeOptions.setDocumentType(DocumentTypeEnum.WORDPROCESSING);
         qrCodeOptions.setTop(imageOptions.getTop() + imageOptions.getHeight() + 20);
 
         SignStampOptions stampOptions = new SignStampOptions();
         TestsSignStamp.PopulateOptions(stampOptions);
-        stampOptions.setDocumentType(DocumentTypeEnum.WORDPROCESSING);
         stampOptions.setTop(qrCodeOptions.getTop() + qrCodeOptions.getHeight() + 20);
 
         SignTextOptions textOptions = new SignTextOptions();
         TestsSignText.PopulateOptions(textOptions);
-        textOptions.setDocumentType(DocumentTypeEnum.WORDPROCESSING);
         textOptions.setTop(stampOptions.getTop() + stampOptions.getHeight() + 20);
 
         SignSettings signSettings = new SignSettings();

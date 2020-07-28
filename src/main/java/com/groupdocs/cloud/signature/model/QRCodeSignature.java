@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="QRCodeSignature.java">
- *   Copyright (c) 2003-2019 Aspose Pty Ltd
+ *   Copyright (c) 2003-2020 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -37,6 +37,7 @@ import com.groupdocs.cloud.signature.model.Signature;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import org.threeten.bp.OffsetDateTime;
 
 /**
  * Contains QRCode signature properties
@@ -48,6 +49,9 @@ public class QRCodeSignature extends Signature {
 
   @SerializedName("text")
   private String text = null;
+
+  @SerializedName("format")
+  private String format = null;
 
   public QRCodeSignature qrCodeType(String qrCodeType) {
     this.qrCodeType = qrCodeType;
@@ -85,6 +89,24 @@ public class QRCodeSignature extends Signature {
     this.text = text;
   }
 
+  public QRCodeSignature format(String format) {
+    this.format = format;
+    return this;
+  }
+
+   /**
+   * Specifies the format of QR-code signature image.
+   * @return format
+  **/
+  @ApiModelProperty(value = "Specifies the format of QR-code signature image.")
+  public String getFormat() {
+    return format;
+  }
+
+  public void setFormat(String format) {
+    this.format = format;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -97,12 +119,13 @@ public class QRCodeSignature extends Signature {
     QRCodeSignature qrCodeSignature = (QRCodeSignature) o;
     return Objects.equals(this.qrCodeType, qrCodeSignature.qrCodeType) &&
         Objects.equals(this.text, qrCodeSignature.text) &&
+        Objects.equals(this.format, qrCodeSignature.format) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(qrCodeType, text, super.hashCode());
+    return Objects.hash(qrCodeType, text, format, super.hashCode());
   }
 
 
@@ -113,6 +136,7 @@ public class QRCodeSignature extends Signature {
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    qrCodeType: ").append(toIndentedString(qrCodeType)).append("\n");
     sb.append("    text: ").append(toIndentedString(text)).append("\n");
+    sb.append("    format: ").append(toIndentedString(format)).append("\n");
     sb.append("}");
     return sb.toString();
   }

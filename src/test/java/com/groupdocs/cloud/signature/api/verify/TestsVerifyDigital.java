@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd">
- *   Copyright (c) 2003-2019 Aspose Pty Ltd
+ *   Copyright (c) 2003-2020 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,7 +30,6 @@ package com.groupdocs.cloud.signature.api.verify;
 import com.groupdocs.cloud.signature.api.*;
 import com.groupdocs.cloud.signature.client.ApiException;
 import com.groupdocs.cloud.signature.model.*;
-import com.groupdocs.cloud.signature.model.OptionsBase.DocumentTypeEnum;
 import com.groupdocs.cloud.signature.model.OptionsBase.SignatureTypeEnum;
 import com.groupdocs.cloud.signature.model.requests.*;
 
@@ -54,7 +53,6 @@ public class TestsVerifyDigital extends BaseApiTest {
         FileInfo fileInfo = testFile.ToFileInfo();
         VerifyDigitalOptions options = new VerifyDigitalOptions();
         PopulateOptions(options);
-        options.setDocumentType(DocumentTypeEnum.PDF);
         VerifySettings VerifySettings = new VerifySettings();
         VerifySettings.setFileInfo(fileInfo);
         VerifySettings.addOptionsItem(options);
@@ -80,7 +78,6 @@ public class TestsVerifyDigital extends BaseApiTest {
         FileInfo fileInfo = testFile.ToFileInfo();
         VerifyDigitalOptions options = new VerifyDigitalOptions();
         PopulateOptions(options);
-        options.setDocumentType(DocumentTypeEnum.SPREADSHEET);
         VerifySettings VerifySettings = new VerifySettings();
         VerifySettings.setFileInfo(fileInfo);
         VerifySettings.addOptionsItem(options);
@@ -100,7 +97,6 @@ public class TestsVerifyDigital extends BaseApiTest {
         FileInfo fileInfo = testFile.ToFileInfo();
         VerifyDigitalOptions options = new VerifyDigitalOptions();
         PopulateOptions(options);
-        options.setDocumentType(DocumentTypeEnum.WORDPROCESSING);
         VerifySettings VerifySettings = new VerifySettings();
         VerifySettings.setFileInfo(fileInfo);
         VerifySettings.addOptionsItem(options);

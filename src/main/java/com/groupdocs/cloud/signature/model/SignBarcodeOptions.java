@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="SignBarcodeOptions.java">
- *   Copyright (c) 2003-2019 Aspose Pty Ltd
+ *   Copyright (c) 2003-2020 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -33,6 +33,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.groupdocs.cloud.signature.model.BorderLine;
 import com.groupdocs.cloud.signature.model.Brush;
 import com.groupdocs.cloud.signature.model.Color;
 import com.groupdocs.cloud.signature.model.Padding;
@@ -51,11 +52,8 @@ public class SignBarcodeOptions extends SignTextOptions {
   @SerializedName("barcodeType")
   private String barcodeType = null;
 
-  @SerializedName("borderWeight")
-  private Double borderWeight = null;
-
-  @SerializedName("opacity")
-  private Double opacity = null;
+  @SerializedName("transparency")
+  private Double transparency = null;
 
   /**
    * Gets or sets the alignment of text in the result Barcode Default value is None
@@ -132,40 +130,22 @@ public class SignBarcodeOptions extends SignTextOptions {
     this.barcodeType = barcodeType;
   }
 
-  public SignBarcodeOptions borderWeight(Double borderWeight) {
-    this.borderWeight = borderWeight;
+  public SignBarcodeOptions transparency(Double transparency) {
+    this.transparency = transparency;
     return this;
   }
 
    /**
-   * Gets or sets the weight of the signature border
-   * @return borderWeight
+   * Gets or sets the signature transparency (value from 0.0 (opaque) through 1.0 (clear)). Default value is 0 (opaque).
+   * @return transparency
   **/
-  @ApiModelProperty(required = true, value = "Gets or sets the weight of the signature border")
-  public Double getBorderWeight() {
-    return borderWeight;
+  @ApiModelProperty(value = "Gets or sets the signature transparency (value from 0.0 (opaque) through 1.0 (clear)). Default value is 0 (opaque).")
+  public Double getTransparency() {
+    return transparency;
   }
 
-  public void setBorderWeight(Double borderWeight) {
-    this.borderWeight = borderWeight;
-  }
-
-  public SignBarcodeOptions opacity(Double opacity) {
-    this.opacity = opacity;
-    return this;
-  }
-
-   /**
-   * Gets or sets the signature opacity (value from 0.0 (clear) through 1.0 (opaque)). By default the value is 1.0
-   * @return opacity
-  **/
-  @ApiModelProperty(value = "Gets or sets the signature opacity (value from 0.0 (clear) through 1.0 (opaque)). By default the value is 1.0")
-  public Double getOpacity() {
-    return opacity;
-  }
-
-  public void setOpacity(Double opacity) {
-    this.opacity = opacity;
+  public void setTransparency(Double transparency) {
+    this.transparency = transparency;
   }
 
   public SignBarcodeOptions codeTextAlignment(CodeTextAlignmentEnum codeTextAlignment) {
@@ -215,8 +195,7 @@ public class SignBarcodeOptions extends SignTextOptions {
     }
     SignBarcodeOptions signBarcodeOptions = (SignBarcodeOptions) o;
     return Objects.equals(this.barcodeType, signBarcodeOptions.barcodeType) &&
-        Objects.equals(this.borderWeight, signBarcodeOptions.borderWeight) &&
-        Objects.equals(this.opacity, signBarcodeOptions.opacity) &&
+        Objects.equals(this.transparency, signBarcodeOptions.transparency) &&
         Objects.equals(this.codeTextAlignment, signBarcodeOptions.codeTextAlignment) &&
         Objects.equals(this.innerMargins, signBarcodeOptions.innerMargins) &&
         super.equals(o);
@@ -224,7 +203,7 @@ public class SignBarcodeOptions extends SignTextOptions {
 
   @Override
   public int hashCode() {
-    return Objects.hash(barcodeType, borderWeight, opacity, codeTextAlignment, innerMargins, super.hashCode());
+    return Objects.hash(barcodeType, transparency, codeTextAlignment, innerMargins, super.hashCode());
   }
 
 
@@ -234,8 +213,7 @@ public class SignBarcodeOptions extends SignTextOptions {
     sb.append("class SignBarcodeOptions {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    barcodeType: ").append(toIndentedString(barcodeType)).append("\n");
-    sb.append("    borderWeight: ").append(toIndentedString(borderWeight)).append("\n");
-    sb.append("    opacity: ").append(toIndentedString(opacity)).append("\n");
+    sb.append("    transparency: ").append(toIndentedString(transparency)).append("\n");
     sb.append("    codeTextAlignment: ").append(toIndentedString(codeTextAlignment)).append("\n");
     sb.append("    innerMargins: ").append(toIndentedString(innerMargins)).append("\n");
     sb.append("}");

@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="SignatureDeserializer.java">
- *   Copyright (c) 2003-2019 Aspose Pty Ltd
+ *   Copyright (c) 2003-2020 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -52,7 +52,8 @@ public class SignatureDeserializer implements JsonDeserializer<Signature>
         registry.put("Barcode", BarcodeSignature.class);
         registry.put("QRCode", QRCodeSignature.class);
         registry.put("Digital", DigitalSignature.class);
-        
+        registry.put("Image", ImageSignature.class);
+        registry.put("Text", TextSignature.class);
         gson = _gson;
     }
 

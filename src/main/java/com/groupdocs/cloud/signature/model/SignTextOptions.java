@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="SignTextOptions.java">
- *   Copyright (c) 2003-2019 Aspose Pty Ltd
+ *   Copyright (c) 2003-2020 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -33,6 +33,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.groupdocs.cloud.signature.model.BorderLine;
 import com.groupdocs.cloud.signature.model.Brush;
 import com.groupdocs.cloud.signature.model.Color;
 import com.groupdocs.cloud.signature.model.Padding;
@@ -226,8 +227,6 @@ public class SignTextOptions extends SignOptions {
    */
   @JsonAdapter(HorizontalAlignmentEnum.Adapter.class)
   public enum HorizontalAlignmentEnum {
-    DEFAULT("Default"),
-    
     NONE("None"),
     
     LEFT("Left"),
@@ -282,8 +281,6 @@ public class SignTextOptions extends SignOptions {
    */
   @JsonAdapter(VerticalAlignmentEnum.Adapter.class)
   public enum VerticalAlignmentEnum {
-    DEFAULT("Default"),
-    
     NONE("None"),
     
     TOP("Top"),
@@ -397,82 +394,14 @@ public class SignTextOptions extends SignOptions {
   @SerializedName("foreColor")
   private Color foreColor = null;
 
-  @SerializedName("borderColor")
-  private Color borderColor = null;
-
   @SerializedName("backgroundColor")
   private Color backgroundColor = null;
 
   @SerializedName("backgroundBrush")
   private Brush backgroundBrush = null;
 
-  @SerializedName("borderVisiblity")
-  private Boolean borderVisiblity = null;
-
-  /**
-   * Gets or sets the signature border style It is not suitable for PDF
-   */
-  @JsonAdapter(BorderDashStyleEnum.Adapter.class)
-  public enum BorderDashStyleEnum {
-    DASH("Dash"),
-    
-    DASHDOT("DashDot"),
-    
-    DASHDOTDOT("DashDotDot"),
-    
-    DASHLONGDASH("DashLongDash"),
-    
-    DASHLONGDASHDOT("DashLongDashDot"),
-    
-    ROUNDDOT("RoundDot"),
-    
-    SOLID("Solid"),
-    
-    SQUAREDOT("SquareDot");
-
-    private String value;
-
-    BorderDashStyleEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static BorderDashStyleEnum fromValue(String text) {
-      for (BorderDashStyleEnum b : BorderDashStyleEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
-          return b;
-        }
-      }
-      return null;
-    }
-
-    public static class Adapter extends TypeAdapter<BorderDashStyleEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final BorderDashStyleEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public BorderDashStyleEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
-        return BorderDashStyleEnum.fromValue(String.valueOf(value));
-      }
-    }
-  }
-
-  @SerializedName("borderDashStyle")
-  private BorderDashStyleEnum borderDashStyle = null;
-
-  @SerializedName("borderTransparency")
-  private Double borderTransparency = null;
+  @SerializedName("border")
+  private BorderLine border = null;
 
   /**
    * Horizontal alignment of text inside a signature
@@ -577,6 +506,9 @@ public class SignTextOptions extends SignOptions {
 
   @SerializedName("textVerticalAlignment")
   private TextVerticalAlignmentEnum textVerticalAlignment = null;
+
+  @SerializedName("zorder")
+  private Integer zorder = null;
 
   public SignTextOptions left(Integer left) {
     this.left = left;
@@ -848,24 +780,6 @@ public class SignTextOptions extends SignOptions {
     this.foreColor = foreColor;
   }
 
-  public SignTextOptions borderColor(Color borderColor) {
-    this.borderColor = borderColor;
-    return this;
-  }
-
-   /**
-   * Gets or sets the border color of signature
-   * @return borderColor
-  **/
-  @ApiModelProperty(value = "Gets or sets the border color of signature")
-  public Color getBorderColor() {
-    return borderColor;
-  }
-
-  public void setBorderColor(Color borderColor) {
-    this.borderColor = borderColor;
-  }
-
   public SignTextOptions backgroundColor(Color backgroundColor) {
     this.backgroundColor = backgroundColor;
     return this;
@@ -902,58 +816,22 @@ public class SignTextOptions extends SignOptions {
     this.backgroundBrush = backgroundBrush;
   }
 
-  public SignTextOptions borderVisiblity(Boolean borderVisiblity) {
-    this.borderVisiblity = borderVisiblity;
+  public SignTextOptions border(BorderLine border) {
+    this.border = border;
     return this;
   }
 
    /**
-   * Gets or sets the signature border visibility It is not suitable for PDF
-   * @return borderVisiblity
+   * Gets or sets the signature border properties
+   * @return border
   **/
-  @ApiModelProperty(required = true, value = "Gets or sets the signature border visibility It is not suitable for PDF")
-  public Boolean getBorderVisiblity() {
-    return borderVisiblity;
+  @ApiModelProperty(value = "Gets or sets the signature border properties")
+  public BorderLine getBorder() {
+    return border;
   }
 
-  public void setBorderVisiblity(Boolean borderVisiblity) {
-    this.borderVisiblity = borderVisiblity;
-  }
-
-  public SignTextOptions borderDashStyle(BorderDashStyleEnum borderDashStyle) {
-    this.borderDashStyle = borderDashStyle;
-    return this;
-  }
-
-   /**
-   * Gets or sets the signature border style It is not suitable for PDF
-   * @return borderDashStyle
-  **/
-  @ApiModelProperty(required = true, value = "Gets or sets the signature border style It is not suitable for PDF")
-  public BorderDashStyleEnum getBorderDashStyle() {
-    return borderDashStyle;
-  }
-
-  public void setBorderDashStyle(BorderDashStyleEnum borderDashStyle) {
-    this.borderDashStyle = borderDashStyle;
-  }
-
-  public SignTextOptions borderTransparency(Double borderTransparency) {
-    this.borderTransparency = borderTransparency;
-    return this;
-  }
-
-   /**
-   * Gets or sets the signature border transparency (value from 0.0 (opaque) through 1.0 (clear)) It is not suitable for PDF
-   * @return borderTransparency
-  **/
-  @ApiModelProperty(required = true, value = "Gets or sets the signature border transparency (value from 0.0 (opaque) through 1.0 (clear)) It is not suitable for PDF")
-  public Double getBorderTransparency() {
-    return borderTransparency;
-  }
-
-  public void setBorderTransparency(Double borderTransparency) {
-    this.borderTransparency = borderTransparency;
+  public void setBorder(BorderLine border) {
+    this.border = border;
   }
 
   public SignTextOptions textHorizontalAlignment(TextHorizontalAlignmentEnum textHorizontalAlignment) {
@@ -992,6 +870,24 @@ public class SignTextOptions extends SignOptions {
     this.textVerticalAlignment = textVerticalAlignment;
   }
 
+  public SignTextOptions zorder(Integer zorder) {
+    this.zorder = zorder;
+    return this;
+  }
+
+   /**
+   * Gets or sets the Z-order position of text signature. Determines the display order of overlapping signatures.             
+   * @return zorder
+  **/
+  @ApiModelProperty(required = true, value = "Gets or sets the Z-order position of text signature. Determines the display order of overlapping signatures.             ")
+  public Integer getZorder() {
+    return zorder;
+  }
+
+  public void setZorder(Integer zorder) {
+    this.zorder = zorder;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -1017,20 +913,18 @@ public class SignTextOptions extends SignOptions {
         Objects.equals(this.text, signTextOptions.text) &&
         Objects.equals(this.font, signTextOptions.font) &&
         Objects.equals(this.foreColor, signTextOptions.foreColor) &&
-        Objects.equals(this.borderColor, signTextOptions.borderColor) &&
         Objects.equals(this.backgroundColor, signTextOptions.backgroundColor) &&
         Objects.equals(this.backgroundBrush, signTextOptions.backgroundBrush) &&
-        Objects.equals(this.borderVisiblity, signTextOptions.borderVisiblity) &&
-        Objects.equals(this.borderDashStyle, signTextOptions.borderDashStyle) &&
-        Objects.equals(this.borderTransparency, signTextOptions.borderTransparency) &&
+        Objects.equals(this.border, signTextOptions.border) &&
         Objects.equals(this.textHorizontalAlignment, signTextOptions.textHorizontalAlignment) &&
         Objects.equals(this.textVerticalAlignment, signTextOptions.textVerticalAlignment) &&
+        Objects.equals(this.zorder, signTextOptions.zorder) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(left, top, width, height, locationMeasureType, sizeMeasureType, stretch, rotationAngle, horizontalAlignment, verticalAlignment, margin, marginMeasureType, text, font, foreColor, borderColor, backgroundColor, backgroundBrush, borderVisiblity, borderDashStyle, borderTransparency, textHorizontalAlignment, textVerticalAlignment, super.hashCode());
+    return Objects.hash(left, top, width, height, locationMeasureType, sizeMeasureType, stretch, rotationAngle, horizontalAlignment, verticalAlignment, margin, marginMeasureType, text, font, foreColor, backgroundColor, backgroundBrush, border, textHorizontalAlignment, textVerticalAlignment, zorder, super.hashCode());
   }
 
 
@@ -1054,14 +948,12 @@ public class SignTextOptions extends SignOptions {
     sb.append("    text: ").append(toIndentedString(text)).append("\n");
     sb.append("    font: ").append(toIndentedString(font)).append("\n");
     sb.append("    foreColor: ").append(toIndentedString(foreColor)).append("\n");
-    sb.append("    borderColor: ").append(toIndentedString(borderColor)).append("\n");
     sb.append("    backgroundColor: ").append(toIndentedString(backgroundColor)).append("\n");
     sb.append("    backgroundBrush: ").append(toIndentedString(backgroundBrush)).append("\n");
-    sb.append("    borderVisiblity: ").append(toIndentedString(borderVisiblity)).append("\n");
-    sb.append("    borderDashStyle: ").append(toIndentedString(borderDashStyle)).append("\n");
-    sb.append("    borderTransparency: ").append(toIndentedString(borderTransparency)).append("\n");
+    sb.append("    border: ").append(toIndentedString(border)).append("\n");
     sb.append("    textHorizontalAlignment: ").append(toIndentedString(textHorizontalAlignment)).append("\n");
     sb.append("    textVerticalAlignment: ").append(toIndentedString(textVerticalAlignment)).append("\n");
+    sb.append("    zorder: ").append(toIndentedString(zorder)).append("\n");
     sb.append("}");
     return sb.toString();
   }

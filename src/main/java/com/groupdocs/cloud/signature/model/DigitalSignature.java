@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="DigitalSignature.java">
- *   Copyright (c) 2003-2019 Aspose Pty Ltd
+ *   Copyright (c) 2003-2020 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -50,58 +50,6 @@ public class DigitalSignature extends Signature {
   @SerializedName("isValid")
   private Boolean isValid = null;
 
-  /**
-   * Gets or sets the type of the digital signature
-   */
-  @JsonAdapter(TypeEnum.Adapter.class)
-  public enum TypeEnum {
-    UNKNOWN("Unknown"),
-    
-    CRYPTOAPI("CryptoApi"),
-    
-    XMLDSIG("XmlDsig");
-
-    private String value;
-
-    TypeEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static TypeEnum fromValue(String text) {
-      for (TypeEnum b : TypeEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
-          return b;
-        }
-      }
-      return null;
-    }
-
-    public static class Adapter extends TypeAdapter<TypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public TypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
-        return TypeEnum.fromValue(String.valueOf(value));
-      }
-    }
-  }
-
-  @SerializedName("type")
-  private TypeEnum type = null;
-
   @SerializedName("signTime")
   private OffsetDateTime signTime = null;
 
@@ -141,24 +89,6 @@ public class DigitalSignature extends Signature {
     this.isValid = isValid;
   }
 
-  public DigitalSignature type(TypeEnum type) {
-    this.type = type;
-    return this;
-  }
-
-   /**
-   * Gets or sets the type of the digital signature
-   * @return type
-  **/
-  @ApiModelProperty(required = true, value = "Gets or sets the type of the digital signature")
-  public TypeEnum getType() {
-    return type;
-  }
-
-  public void setType(TypeEnum type) {
-    this.type = type;
-  }
-
   public DigitalSignature signTime(OffsetDateTime signTime) {
     this.signTime = signTime;
     return this;
@@ -189,14 +119,13 @@ public class DigitalSignature extends Signature {
     DigitalSignature digitalSignature = (DigitalSignature) o;
     return Objects.equals(this.comments, digitalSignature.comments) &&
         Objects.equals(this.isValid, digitalSignature.isValid) &&
-        Objects.equals(this.type, digitalSignature.type) &&
         Objects.equals(this.signTime, digitalSignature.signTime) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(comments, isValid, type, signTime, super.hashCode());
+    return Objects.hash(comments, isValid, signTime, super.hashCode());
   }
 
 
@@ -207,7 +136,6 @@ public class DigitalSignature extends Signature {
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    comments: ").append(toIndentedString(comments)).append("\n");
     sb.append("    isValid: ").append(toIndentedString(isValid)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    signTime: ").append(toIndentedString(signTime)).append("\n");
     sb.append("}");
     return sb.toString();

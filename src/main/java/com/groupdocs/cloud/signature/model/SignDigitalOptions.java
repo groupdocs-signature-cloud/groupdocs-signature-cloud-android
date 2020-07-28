@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="SignDigitalOptions.java">
- *   Copyright (c) 2003-2019 Aspose Pty Ltd
+ *   Copyright (c) 2003-2020 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -33,6 +33,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.groupdocs.cloud.signature.model.BorderLine;
 import com.groupdocs.cloud.signature.model.Padding;
 import com.groupdocs.cloud.signature.model.PagesSetup;
 import com.groupdocs.cloud.signature.model.SignImageOptions;
@@ -45,11 +46,145 @@ import java.io.IOException;
  */
 @ApiModel(description = "Represents the Digital sign options")
 public class SignDigitalOptions extends SignImageOptions {
+  @SerializedName("reason")
+  private String reason = null;
+
+  @SerializedName("contact")
+  private String contact = null;
+
+  @SerializedName("location")
+  private String location = null;
+
+  @SerializedName("visible")
+  private Boolean visible = null;
+
   @SerializedName("password")
   private String password = null;
 
-  @SerializedName("certificateGuid")
-  private String certificateGuid = null;
+  @SerializedName("certificateFilePath")
+  private String certificateFilePath = null;
+
+  /**
+   * XAdES type GroupDocs.Signature.Options.DigitalSignOptions.XAdESType. Default value is None (XAdES is off). At this moment XAdES signature type is supported only for Spreadsheet documents.             
+   */
+  @JsonAdapter(XadESTypeEnum.Adapter.class)
+  public enum XadESTypeEnum {
+    NONE("None"),
+    
+    XADES("XAdES");
+
+    private String value;
+
+    XadESTypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static XadESTypeEnum fromValue(String text) {
+      for (XadESTypeEnum b : XadESTypeEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<XadESTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final XadESTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public XadESTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return XadESTypeEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("xadESType")
+  private XadESTypeEnum xadESType = null;
+
+  public SignDigitalOptions reason(String reason) {
+    this.reason = reason;
+    return this;
+  }
+
+   /**
+   * Gets or sets the reason of signature.
+   * @return reason
+  **/
+  @ApiModelProperty(value = "Gets or sets the reason of signature.")
+  public String getReason() {
+    return reason;
+  }
+
+  public void setReason(String reason) {
+    this.reason = reason;
+  }
+
+  public SignDigitalOptions contact(String contact) {
+    this.contact = contact;
+    return this;
+  }
+
+   /**
+   * Gets or sets the signature contact.
+   * @return contact
+  **/
+  @ApiModelProperty(value = "Gets or sets the signature contact.")
+  public String getContact() {
+    return contact;
+  }
+
+  public void setContact(String contact) {
+    this.contact = contact;
+  }
+
+  public SignDigitalOptions location(String location) {
+    this.location = location;
+    return this;
+  }
+
+   /**
+   * Gets or sets the signature location.
+   * @return location
+  **/
+  @ApiModelProperty(value = "Gets or sets the signature location.")
+  public String getLocation() {
+    return location;
+  }
+
+  public void setLocation(String location) {
+    this.location = location;
+  }
+
+  public SignDigitalOptions visible(Boolean visible) {
+    this.visible = visible;
+    return this;
+  }
+
+   /**
+   * Gets or sets the visibility of signature.
+   * @return visible
+  **/
+  @ApiModelProperty(required = true, value = "Gets or sets the visibility of signature.")
+  public Boolean getVisible() {
+    return visible;
+  }
+
+  public void setVisible(Boolean visible) {
+    this.visible = visible;
+  }
 
   public SignDigitalOptions password(String password) {
     this.password = password;
@@ -69,22 +204,40 @@ public class SignDigitalOptions extends SignImageOptions {
     this.password = password;
   }
 
-  public SignDigitalOptions certificateGuid(String certificateGuid) {
-    this.certificateGuid = certificateGuid;
+  public SignDigitalOptions certificateFilePath(String certificateFilePath) {
+    this.certificateFilePath = certificateFilePath;
     return this;
   }
 
    /**
    * Gets or sets the digital certificate file GUID
-   * @return certificateGuid
+   * @return certificateFilePath
   **/
   @ApiModelProperty(value = "Gets or sets the digital certificate file GUID")
-  public String getCertificateGuid() {
-    return certificateGuid;
+  public String getCertificateFilePath() {
+    return certificateFilePath;
   }
 
-  public void setCertificateGuid(String certificateGuid) {
-    this.certificateGuid = certificateGuid;
+  public void setCertificateFilePath(String certificateFilePath) {
+    this.certificateFilePath = certificateFilePath;
+  }
+
+  public SignDigitalOptions xadESType(XadESTypeEnum xadESType) {
+    this.xadESType = xadESType;
+    return this;
+  }
+
+   /**
+   * XAdES type GroupDocs.Signature.Options.DigitalSignOptions.XAdESType. Default value is None (XAdES is off). At this moment XAdES signature type is supported only for Spreadsheet documents.             
+   * @return xadESType
+  **/
+  @ApiModelProperty(required = true, value = "XAdES type GroupDocs.Signature.Options.DigitalSignOptions.XAdESType. Default value is None (XAdES is off). At this moment XAdES signature type is supported only for Spreadsheet documents.             ")
+  public XadESTypeEnum getXadESType() {
+    return xadESType;
+  }
+
+  public void setXadESType(XadESTypeEnum xadESType) {
+    this.xadESType = xadESType;
   }
 
 
@@ -97,14 +250,19 @@ public class SignDigitalOptions extends SignImageOptions {
       return false;
     }
     SignDigitalOptions signDigitalOptions = (SignDigitalOptions) o;
-    return Objects.equals(this.password, signDigitalOptions.password) &&
-        Objects.equals(this.certificateGuid, signDigitalOptions.certificateGuid) &&
+    return Objects.equals(this.reason, signDigitalOptions.reason) &&
+        Objects.equals(this.contact, signDigitalOptions.contact) &&
+        Objects.equals(this.location, signDigitalOptions.location) &&
+        Objects.equals(this.visible, signDigitalOptions.visible) &&
+        Objects.equals(this.password, signDigitalOptions.password) &&
+        Objects.equals(this.certificateFilePath, signDigitalOptions.certificateFilePath) &&
+        Objects.equals(this.xadESType, signDigitalOptions.xadESType) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(password, certificateGuid, super.hashCode());
+    return Objects.hash(reason, contact, location, visible, password, certificateFilePath, xadESType, super.hashCode());
   }
 
 
@@ -113,8 +271,13 @@ public class SignDigitalOptions extends SignImageOptions {
     StringBuilder sb = new StringBuilder();
     sb.append("class SignDigitalOptions {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
+    sb.append("    contact: ").append(toIndentedString(contact)).append("\n");
+    sb.append("    location: ").append(toIndentedString(location)).append("\n");
+    sb.append("    visible: ").append(toIndentedString(visible)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
-    sb.append("    certificateGuid: ").append(toIndentedString(certificateGuid)).append("\n");
+    sb.append("    certificateFilePath: ").append(toIndentedString(certificateFilePath)).append("\n");
+    sb.append("    xadESType: ").append(toIndentedString(xadESType)).append("\n");
     sb.append("}");
     return sb.toString();
   }

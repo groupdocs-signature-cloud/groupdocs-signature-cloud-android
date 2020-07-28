@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="SignResult.java">
- *   Copyright (c) 2003-2019 Aspose Pty Ltd
+ *   Copyright (c) 2003-2020 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -34,9 +34,12 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.groupdocs.cloud.signature.model.FileInfo;
+import com.groupdocs.cloud.signature.model.Signature;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Sign result information
@@ -51,6 +54,12 @@ public class SignResult {
 
   @SerializedName("downloadUrl")
   private String downloadUrl = null;
+
+  @SerializedName("succeeded")
+  private List<Signature> succeeded = null;
+
+  @SerializedName("failed")
+  private List<Signature> failed = null;
 
   public SignResult fileInfo(FileInfo fileInfo) {
     this.fileInfo = fileInfo;
@@ -106,6 +115,58 @@ public class SignResult {
     this.downloadUrl = downloadUrl;
   }
 
+  public SignResult succeeded(List<Signature> succeeded) {
+    this.succeeded = succeeded;
+    return this;
+  }
+
+  public SignResult addSucceededItem(Signature succeededItem) {
+    if (this.succeeded == null) {
+      this.succeeded = new ArrayList<Signature>();
+    }
+    this.succeeded.add(succeededItem);
+    return this;
+  }
+
+   /**
+   * List of newly created signatures
+   * @return succeeded
+  **/
+  @ApiModelProperty(value = "List of newly created signatures")
+  public List<Signature> getSucceeded() {
+    return succeeded;
+  }
+
+  public void setSucceeded(List<Signature> succeeded) {
+    this.succeeded = succeeded;
+  }
+
+  public SignResult failed(List<Signature> failed) {
+    this.failed = failed;
+    return this;
+  }
+
+  public SignResult addFailedItem(Signature failedItem) {
+    if (this.failed == null) {
+      this.failed = new ArrayList<Signature>();
+    }
+    this.failed.add(failedItem);
+    return this;
+  }
+
+   /**
+   * List of signatures that were failed to create
+   * @return failed
+  **/
+  @ApiModelProperty(value = "List of signatures that were failed to create")
+  public List<Signature> getFailed() {
+    return failed;
+  }
+
+  public void setFailed(List<Signature> failed) {
+    this.failed = failed;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -118,12 +179,14 @@ public class SignResult {
     SignResult signResult = (SignResult) o;
     return Objects.equals(this.fileInfo, signResult.fileInfo) &&
         Objects.equals(this.size, signResult.size) &&
-        Objects.equals(this.downloadUrl, signResult.downloadUrl);
+        Objects.equals(this.downloadUrl, signResult.downloadUrl) &&
+        Objects.equals(this.succeeded, signResult.succeeded) &&
+        Objects.equals(this.failed, signResult.failed);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fileInfo, size, downloadUrl);
+    return Objects.hash(fileInfo, size, downloadUrl, succeeded, failed);
   }
 
 
@@ -135,6 +198,8 @@ public class SignResult {
     sb.append("    fileInfo: ").append(toIndentedString(fileInfo)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("    downloadUrl: ").append(toIndentedString(downloadUrl)).append("\n");
+    sb.append("    succeeded: ").append(toIndentedString(succeeded)).append("\n");
+    sb.append("    failed: ").append(toIndentedString(failed)).append("\n");
     sb.append("}");
     return sb.toString();
   }

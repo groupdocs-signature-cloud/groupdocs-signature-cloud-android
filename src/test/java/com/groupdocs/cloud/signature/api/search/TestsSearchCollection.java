@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd">
- *   Copyright (c) 2003-2019 Aspose Pty Ltd
+ *   Copyright (c) 2003-2020 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,7 +30,6 @@ package com.groupdocs.cloud.signature.api.search;
 import com.groupdocs.cloud.signature.api.*;
 import com.groupdocs.cloud.signature.client.ApiException;
 import com.groupdocs.cloud.signature.model.*;
-import com.groupdocs.cloud.signature.model.OptionsBase.DocumentTypeEnum;
 import com.groupdocs.cloud.signature.model.requests.*;
 
 import static org.junit.Assert.*;
@@ -48,13 +47,11 @@ public class TestsSearchCollection extends BaseApiTest {
 
         SearchBarcodeOptions optionsBarcode = new SearchBarcodeOptions();
         TestsSearchBarcode.PopulateOptions(optionsBarcode);
-        optionsBarcode.setDocumentType(DocumentTypeEnum.IMAGE);
 
         //Digital search is not supported for images
 
         SearchQRCodeOptions optionsQRCode = new SearchQRCodeOptions();
         TestsSearchQRCode.PopulateOptions(optionsQRCode);
-        optionsQRCode.setDocumentType(DocumentTypeEnum.IMAGE);
 
         SearchSettings searchSettings = new SearchSettings();
         searchSettings.setFileInfo(fileInfo);
@@ -77,15 +74,12 @@ public class TestsSearchCollection extends BaseApiTest {
 
         SearchBarcodeOptions optionsBarcode = new SearchBarcodeOptions();
         TestsSearchBarcode.PopulateOptions(optionsBarcode);
-        optionsBarcode.setDocumentType(DocumentTypeEnum.PDF);
 
         SearchDigitalOptions optionsDigital = new SearchDigitalOptions();
         TestsSearchDigital.PopulateOptions(optionsDigital);
-        optionsDigital.setDocumentType(DocumentTypeEnum.PDF);
 
         SearchQRCodeOptions optionsQRCode = new SearchQRCodeOptions();
         TestsSearchQRCode.PopulateOptions(optionsQRCode);
-        optionsQRCode.setDocumentType(DocumentTypeEnum.PDF);
 
         SearchSettings searchSettings = new SearchSettings();
         searchSettings.setFileInfo(fileInfo);
@@ -109,13 +103,11 @@ public class TestsSearchCollection extends BaseApiTest {
 
         SearchBarcodeOptions optionsBarcode = new SearchBarcodeOptions();
         TestsSearchBarcode.PopulateOptions(optionsBarcode);
-        optionsBarcode.setDocumentType(DocumentTypeEnum.PRESENTATION);
 
         //Digital search is not supported for presentations
 
         SearchQRCodeOptions optionsQRCode = new SearchQRCodeOptions();
         TestsSearchQRCode.PopulateOptions(optionsQRCode);
-        optionsQRCode.setDocumentType(DocumentTypeEnum.PRESENTATION);
 
         SearchSettings searchSettings = new SearchSettings();
         searchSettings.setFileInfo(fileInfo);
@@ -138,15 +130,12 @@ public class TestsSearchCollection extends BaseApiTest {
 
         SearchBarcodeOptions optionsBarcode = new SearchBarcodeOptions();
         TestsSearchBarcode.PopulateOptions(optionsBarcode);
-        optionsBarcode.setDocumentType(DocumentTypeEnum.SPREADSHEET);
 
         SearchDigitalOptions optionsDigital = new SearchDigitalOptions();
         TestsSearchDigital.PopulateOptions(optionsDigital);
-        optionsDigital.setDocumentType(DocumentTypeEnum.SPREADSHEET);
 
         SearchQRCodeOptions optionsQRCode = new SearchQRCodeOptions();
         TestsSearchQRCode.PopulateOptions(optionsQRCode);
-        optionsQRCode.setDocumentType(DocumentTypeEnum.SPREADSHEET);
 
         SearchSettings searchSettings = new SearchSettings();
         searchSettings.setFileInfo(fileInfo);
@@ -170,15 +159,12 @@ public class TestsSearchCollection extends BaseApiTest {
 
         SearchBarcodeOptions optionsBarcode = new SearchBarcodeOptions();
         TestsSearchBarcode.PopulateOptions(optionsBarcode);
-        optionsBarcode.setDocumentType(DocumentTypeEnum.WORDPROCESSING);
 
         SearchDigitalOptions optionsDigital = new SearchDigitalOptions();
         TestsSearchDigital.PopulateOptions(optionsDigital);
-        optionsDigital.setDocumentType(DocumentTypeEnum.WORDPROCESSING);
 
         SearchQRCodeOptions optionsQRCode = new SearchQRCodeOptions();
         TestsSearchQRCode.PopulateOptions(optionsQRCode);
-        optionsQRCode.setDocumentType(DocumentTypeEnum.WORDPROCESSING);
 
         SearchSettings searchSettings = new SearchSettings();
         searchSettings.setFileInfo(fileInfo);

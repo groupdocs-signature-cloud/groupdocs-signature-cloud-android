@@ -5,7 +5,7 @@
     <artifactId>groupdocs-signature-cloud</artifactId>
     <packaging>jar</packaging>
     <name>groupdocs-signature-cloud</name>
-    <version>19.5</version>
+    <version>20.7</version>
     <url>https://github.com/groupdocs-signature-cloud/groupdocs-signature-cloud-java</url>
     <description>Java library for communicating with the GroupDocs.Signature Cloud API</description>
     <scm>
@@ -94,7 +94,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>2.10.4</version>
+                <version>3.0.1</version>
                 <executions>
                     <execution>
                         <id>attach-javadocs</id>

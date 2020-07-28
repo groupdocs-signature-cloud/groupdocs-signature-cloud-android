@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="BarcodeSignature.java">
- *   Copyright (c) 2003-2019 Aspose Pty Ltd
+ *   Copyright (c) 2003-2020 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -37,6 +37,7 @@ import com.groupdocs.cloud.signature.model.Signature;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import org.threeten.bp.OffsetDateTime;
 
 /**
  * Contains Barcode signature properties
@@ -48,6 +49,9 @@ public class BarcodeSignature extends Signature {
 
   @SerializedName("text")
   private String text = null;
+
+  @SerializedName("format")
+  private String format = null;
 
   public BarcodeSignature barcodeType(String barcodeType) {
     this.barcodeType = barcodeType;
@@ -85,6 +89,24 @@ public class BarcodeSignature extends Signature {
     this.text = text;
   }
 
+  public BarcodeSignature format(String format) {
+    this.format = format;
+    return this;
+  }
+
+   /**
+   * Specifies the format of Barcode signature image.
+   * @return format
+  **/
+  @ApiModelProperty(value = "Specifies the format of Barcode signature image.")
+  public String getFormat() {
+    return format;
+  }
+
+  public void setFormat(String format) {
+    this.format = format;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -97,12 +119,13 @@ public class BarcodeSignature extends Signature {
     BarcodeSignature barcodeSignature = (BarcodeSignature) o;
     return Objects.equals(this.barcodeType, barcodeSignature.barcodeType) &&
         Objects.equals(this.text, barcodeSignature.text) &&
+        Objects.equals(this.format, barcodeSignature.format) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(barcodeType, text, super.hashCode());
+    return Objects.hash(barcodeType, text, format, super.hashCode());
   }
 
 
@@ -113,6 +136,7 @@ public class BarcodeSignature extends Signature {
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    barcodeType: ").append(toIndentedString(barcodeType)).append("\n");
     sb.append("    text: ").append(toIndentedString(text)).append("\n");
+    sb.append("    format: ").append(toIndentedString(format)).append("\n");
     sb.append("}");
     return sb.toString();
   }

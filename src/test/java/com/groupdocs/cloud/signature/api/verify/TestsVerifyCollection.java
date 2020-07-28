@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd">
- *   Copyright (c) 2003-2019 Aspose Pty Ltd
+ *   Copyright (c) 2003-2020 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,7 +30,6 @@ package com.groupdocs.cloud.signature.api.verify;
 import com.groupdocs.cloud.signature.api.*;
 import com.groupdocs.cloud.signature.client.ApiException;
 import com.groupdocs.cloud.signature.model.*;
-import com.groupdocs.cloud.signature.model.OptionsBase.DocumentTypeEnum;
 import com.groupdocs.cloud.signature.model.requests.*;
 
 import static org.junit.Assert.*;
@@ -48,13 +47,11 @@ public class TestsVerifyCollection extends BaseApiTest {
 
         VerifyBarcodeOptions optionsBarcode = new VerifyBarcodeOptions();
         TestsVerifyBarcode.PopulateOptions(optionsBarcode);
-        optionsBarcode.setDocumentType(DocumentTypeEnum.IMAGE);
 
         //Digital verification is not supported for images
 
         VerifyQRCodeOptions optionsQRCode = new VerifyQRCodeOptions();
         TestsVerifyQRCode.PopulateOptions(optionsQRCode);
-        optionsQRCode.setDocumentType(DocumentTypeEnum.IMAGE);
 
         //Text verification is not supported for images
 
@@ -79,19 +76,15 @@ public class TestsVerifyCollection extends BaseApiTest {
 
         VerifyBarcodeOptions optionsBarcode = new VerifyBarcodeOptions();
         TestsVerifyBarcode.PopulateOptions(optionsBarcode);
-        optionsBarcode.setDocumentType(DocumentTypeEnum.PDF);
 
         VerifyDigitalOptions optionsDigital = new VerifyDigitalOptions();
         TestsVerifyDigital.PopulateOptions(optionsDigital);
-        optionsDigital.setDocumentType(DocumentTypeEnum.PDF);
 
         VerifyQRCodeOptions optionsQRCode = new VerifyQRCodeOptions();
         TestsVerifyQRCode.PopulateOptions(optionsQRCode);
-        optionsQRCode.setDocumentType(DocumentTypeEnum.PDF);
 
         VerifyTextOptions optionsText = new VerifyTextOptions();
         TestsVerifyText.PopulateOptions(optionsText);
-        optionsText.setDocumentType(DocumentTypeEnum.PDF);
 
         VerifySettings VerifySettings = new VerifySettings();
         VerifySettings.setFileInfo(fileInfo);
@@ -116,17 +109,14 @@ public class TestsVerifyCollection extends BaseApiTest {
 
         VerifyBarcodeOptions optionsBarcode = new VerifyBarcodeOptions();
         TestsVerifyBarcode.PopulateOptions(optionsBarcode);
-        optionsBarcode.setDocumentType(DocumentTypeEnum.PRESENTATION);
 
         //Digital Verify is not supported for presentations
 
         VerifyQRCodeOptions optionsQRCode = new VerifyQRCodeOptions();
         TestsVerifyQRCode.PopulateOptions(optionsQRCode);
-        optionsQRCode.setDocumentType(DocumentTypeEnum.PRESENTATION);
 
         VerifyTextOptions optionsText = new VerifyTextOptions();
         TestsVerifyText.PopulateOptions(optionsText);
-        optionsText.setDocumentType(DocumentTypeEnum.PRESENTATION);
 
         VerifySettings VerifySettings = new VerifySettings();
         VerifySettings.setFileInfo(fileInfo);
@@ -150,19 +140,15 @@ public class TestsVerifyCollection extends BaseApiTest {
 
         VerifyBarcodeOptions optionsBarcode = new VerifyBarcodeOptions();
         TestsVerifyBarcode.PopulateOptions(optionsBarcode);
-        optionsBarcode.setDocumentType(DocumentTypeEnum.SPREADSHEET);
 
         VerifyDigitalOptions optionsDigital = new VerifyDigitalOptions();
         TestsVerifyDigital.PopulateOptions(optionsDigital);
-        optionsDigital.setDocumentType(DocumentTypeEnum.SPREADSHEET);
 
         VerifyQRCodeOptions optionsQRCode = new VerifyQRCodeOptions();
         TestsVerifyQRCode.PopulateOptions(optionsQRCode);
-        optionsQRCode.setDocumentType(DocumentTypeEnum.SPREADSHEET);
 
         VerifyTextOptions optionsText = new VerifyTextOptions();
         TestsVerifyText.PopulateOptions(optionsText);
-        optionsText.setDocumentType(DocumentTypeEnum.SPREADSHEET);
 
         VerifySettings VerifySettings = new VerifySettings();
         VerifySettings.setFileInfo(fileInfo);
@@ -187,19 +173,15 @@ public class TestsVerifyCollection extends BaseApiTest {
 
         VerifyBarcodeOptions optionsBarcode = new VerifyBarcodeOptions();
         TestsVerifyBarcode.PopulateOptions(optionsBarcode);
-        optionsBarcode.setDocumentType(DocumentTypeEnum.WORDPROCESSING);
 
         VerifyDigitalOptions optionsDigital = new VerifyDigitalOptions();
         TestsVerifyDigital.PopulateOptions(optionsDigital);
-        optionsDigital.setDocumentType(DocumentTypeEnum.WORDPROCESSING);
 
         VerifyQRCodeOptions optionsQRCode = new VerifyQRCodeOptions();
         TestsVerifyQRCode.PopulateOptions(optionsQRCode);
-        optionsQRCode.setDocumentType(DocumentTypeEnum.WORDPROCESSING);
 
         VerifyTextOptions optionsText = new VerifyTextOptions();
         TestsVerifyText.PopulateOptions(optionsText);
-        optionsText.setDocumentType(DocumentTypeEnum.WORDPROCESSING);
 
         VerifySettings VerifySettings = new VerifySettings();
         VerifySettings.setFileInfo(fileInfo);

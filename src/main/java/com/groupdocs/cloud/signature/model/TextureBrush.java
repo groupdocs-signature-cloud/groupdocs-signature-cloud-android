@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="TextureBrush.java">
- *   Copyright (c) 2003-2019 Aspose Pty Ltd
+ *   Copyright (c) 2003-2020 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -43,25 +43,25 @@ import java.io.IOException;
  */
 @ApiModel(description = "Represents texture brush")
 public class TextureBrush extends Brush {
-  @SerializedName("imageGuid")
-  private String imageGuid = null;
+  @SerializedName("imageFilePath")
+  private String imageFilePath = null;
 
-  public TextureBrush imageGuid(String imageGuid) {
-    this.imageGuid = imageGuid;
+  public TextureBrush imageFilePath(String imageFilePath) {
+    this.imageFilePath = imageFilePath;
     return this;
   }
 
    /**
-   * Gets or sets the texture image file Guid
-   * @return imageGuid
+   * Gets or sets the texture image file path
+   * @return imageFilePath
   **/
-  @ApiModelProperty(value = "Gets or sets the texture image file Guid")
-  public String getImageGuid() {
-    return imageGuid;
+  @ApiModelProperty(value = "Gets or sets the texture image file path")
+  public String getImageFilePath() {
+    return imageFilePath;
   }
 
-  public void setImageGuid(String imageGuid) {
-    this.imageGuid = imageGuid;
+  public void setImageFilePath(String imageFilePath) {
+    this.imageFilePath = imageFilePath;
   }
 
 
@@ -74,13 +74,13 @@ public class TextureBrush extends Brush {
       return false;
     }
     TextureBrush textureBrush = (TextureBrush) o;
-    return Objects.equals(this.imageGuid, textureBrush.imageGuid) &&
+    return Objects.equals(this.imageFilePath, textureBrush.imageFilePath) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(imageGuid, super.hashCode());
+    return Objects.hash(imageFilePath, super.hashCode());
   }
 
 
@@ -89,7 +89,7 @@ public class TextureBrush extends Brush {
     StringBuilder sb = new StringBuilder();
     sb.append("class TextureBrush {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    imageGuid: ").append(toIndentedString(imageGuid)).append("\n");
+    sb.append("    imageFilePath: ").append(toIndentedString(imageFilePath)).append("\n");
     sb.append("}");
     return sb.toString();
   }
