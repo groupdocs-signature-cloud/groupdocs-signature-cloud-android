@@ -67,12 +67,4 @@ public class ApiExample {
 ## Licensing
 All GroupDocs.Signature Cloud SDKs are licensed under [MIT License](LICENSE).
 
-## Resources
-+ [**Website**](https://www.groupdocs.cloud)
-+ [**Product Home**](https://products.groupdocs.cloud/signature)
-+ [**Documentation**](https://wiki.groupdocs.cloud/display/signaturecloud/Home)
-+ [**Free Support Forum**](https://forum.groupdocs.cloud/c/signature)
-+ [**Blog**](https://blog.groupdocs.cloud/category/signature)
-
-## Contact Us
-Your feedback is very important to us. Please feel free to contact us using our [Support Forums](https://forum.groupdocs.cloud/c/signature).
+[Home](https://www.groupdocs.cloud/) | [Docs](https://docs.groupdocs.cloud/signature/) | [Demos](https://products.groupdocs.app/signature/family) | [API Reference](https://apireference.groupdocs.cloud/signature/) | [Source Code](https://github.com/groupdocs-signature-cloud/groupdocs-signature-cloud-android) | [Blog](https://blog.groupdocs.cloud/category/signature/) | [Free Support](https://forum.groupdocs.cloud/c/signature) | [Free Trial](https://purchase.groupdocs.cloud/trial)
