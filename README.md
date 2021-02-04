@@ -20,11 +20,11 @@ Check out the [Developer's Guide](https://docs.groupdocs.cloud/signature/develop
 
 ## Supported Signature Types
 
-- **Text Signature** 
-- **Image Signature** 
-- **Barcode Signature** 
+- **Text Signature**
+- **Image Signature**
+- **Barcode Signature**
 - **QR-Code Signature**
-- **Digital Signature** 
+- **Digital Signature**
 - **Stamp Signature**
 
 ## Microsoft Office Formats
@@ -65,84 +65,26 @@ dependencies {
     ...
     implementation 'com.groupdocs:groupdocs-signature-cloud:20.7'
 }
-```
 
-## Add Barcode Signature to DOCX
+```
+## Get Supported Document Formats
+
+Please follow the [installation](#installation) instruction and execute the following Java code.
 
 ```java
-// For complete examples and data files, please go to https://github.com/groupdocs-signature-cloud/groupdocs-signature-cloud-java-samples
-// Get ClientId and ClientSecret from https://dashboard.groupdocs.cloud
-String MyClientSecret = ""; 
-String MyClientId = ""; 
+// Get Client Id and Client Secret from https://dashboard.groupdocs.cloud
+String MyClientId = "";
+String MyClientSecret = "";
 
+// Create instance of the API
 Configuration configuration = new Configuration(MyClientId, MyClientSecret);
-SignApi apiInstance = new SignApi(configuration);
+InfoApi infoApi = new InfoApi(configuration);
 
-FileInfo fileInfo = new FileInfo();
-fileInfo.setFilePath("Signaturedocs\\one-page.docx");
-fileInfo.setPassword(null);
-fileInfo.setVersionId(null);
-fileInfo.setStorageName(Constants.MYStorage);
+FormatsResult response = infoApi.getSupportedFileFormats();
 
-InfoSettings infoSettings = new InfoSettings();
-infoSettings.setFileInfo(fileInfo);
-
-SignBarcodeOptions options = new SignBarcodeOptions();
-options.setSignatureType(SignatureTypeEnum.BARCODE);
-
-// set signature properties
-options.setText("123456789012");
-options.setBarcodeType("Code128");
-options.setCodeTextAlignment(CodeTextAlignmentEnum.NONE);
-
-// set signature position on a page
-options.setLeft(100);
-options.setTop(100);
-options.setWidth(300);
-options.setHeight(100);
-options.setLocationMeasureType(LocationMeasureTypeEnum.PIXELS);
-options.setSizeMeasureType(SizeMeasureTypeEnum.PIXELS);
-options.setStretch(StretchEnum.NONE);
-options.setRotationAngle(0);
-options.setHorizontalAlignment(HorizontalAlignmentEnum.NONE);
-options.setVerticalAlignment(VerticalAlignmentEnum.NONE);
-
-Padding padding = new Padding();
-padding.setAll(5);
-options.setMargin(padding);
-options.setMarginMeasureType(MarginMeasureTypeEnum.PIXELS);
-
-Color backgroundColor = new Color();
-backgroundColor.setWeb("DarkOrange");
-options.setBackgroundColor(backgroundColor);
-
-Padding innerMargins = new Padding();
-innerMargins.setAll(2);
-options.setInnerMargins(innerMargins);
-
-*set pages for signing (each of these page settings could be used singly)
-options.setPage(1);
-options.setAllPages(true);
-
-PagesSetup pagesSetup = new PagesSetup();
-pagesSetup.setEvenPages(false);
-pagesSetup.setFirstPage(true);
-pagesSetup.setLastPage(false);
-pagesSetup.setOddPages(false);
-pagesSetup.addPageNumbersItem(1);
-options.setPagesSetup(pagesSetup);
-
-SaveOptions saveOptions = new SaveOptions();
-saveOptions.setOutputFilePath("Signaturedocs\\signedBarcodeOne_page.docx");
-
-SignSettings signSettings = new SignSettings();
-signSettings.setFileInfo(fileInfo);
-signSettings.addOptionsItem(options);
-signSettings.setSaveOptions(saveOptions);
-
-CreateSignaturesRequest request = new CreateSignaturesRequest(signSettings);
-
-SignResult response = apiInstance.createSignatures(request);
+for (Format format : response.getFormats()) {
+	System.out.println(format.getFileFormat());
+}
 ```
 
 ## GroupDocs.Signature Cloud SDKs in Popular Languages
