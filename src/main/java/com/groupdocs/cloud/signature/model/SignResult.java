@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="SignResult.java">
- *   Copyright (c) 2003-2020 Aspose Pty Ltd
+ *   Copyright (c) 2003-2021 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -67,10 +67,10 @@ public class SignResult {
   }
 
    /**
-   * Source document basic info
+   * Signed file info
    * @return fileInfo
   **/
-  @ApiModelProperty(value = "Source document basic info")
+  @ApiModelProperty(value = "Signed file info")
   public FileInfo getFileInfo() {
     return fileInfo;
   }

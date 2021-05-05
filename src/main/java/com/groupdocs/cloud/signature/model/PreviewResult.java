@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose Pty Ltd" file="BaseSettings.java">
+ * <copyright company="Aspose Pty Ltd" file="PreviewResult.java">
  *   Copyright (c) 2003-2021 Aspose Pty Ltd
  * </copyright>
  * <summary>
@@ -34,34 +34,108 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.groupdocs.cloud.signature.model.FileInfo;
+import com.groupdocs.cloud.signature.model.PreviewPage;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
- * Defines base class for settings
+ * Document preview result
  */
-@ApiModel(description = "Defines base class for settings")
-public class BaseSettings {
+@ApiModel(description = "Document preview result")
+public class PreviewResult {
   @SerializedName("fileInfo")
   private FileInfo fileInfo = null;
 
-  public BaseSettings fileInfo(FileInfo fileInfo) {
+  @SerializedName("size")
+  private Long size = null;
+
+  @SerializedName("pagesCount")
+  private Integer pagesCount = null;
+
+  @SerializedName("pages")
+  private List<PreviewPage> pages = null;
+
+  public PreviewResult fileInfo(FileInfo fileInfo) {
     this.fileInfo = fileInfo;
     return this;
   }
 
    /**
-   * File info
+   * Input File info
    * @return fileInfo
   **/
-  @ApiModelProperty(value = "File info")
+  @ApiModelProperty(value = "Input File info")
   public FileInfo getFileInfo() {
     return fileInfo;
   }
 
   public void setFileInfo(FileInfo fileInfo) {
     this.fileInfo = fileInfo;
+  }
+
+  public PreviewResult size(Long size) {
+    this.size = size;
+    return this;
+  }
+
+   /**
+   * Input File size
+   * @return size
+  **/
+  @ApiModelProperty(required = true, value = "Input File size")
+  public Long getSize() {
+    return size;
+  }
+
+  public void setSize(Long size) {
+    this.size = size;
+  }
+
+  public PreviewResult pagesCount(Integer pagesCount) {
+    this.pagesCount = pagesCount;
+    return this;
+  }
+
+   /**
+   * Count of pages
+   * @return pagesCount
+  **/
+  @ApiModelProperty(required = true, value = "Count of pages")
+  public Integer getPagesCount() {
+    return pagesCount;
+  }
+
+  public void setPagesCount(Integer pagesCount) {
+    this.pagesCount = pagesCount;
+  }
+
+  public PreviewResult pages(List<PreviewPage> pages) {
+    this.pages = pages;
+    return this;
+  }
+
+  public PreviewResult addPagesItem(PreviewPage pagesItem) {
+    if (this.pages == null) {
+      this.pages = new ArrayList<PreviewPage>();
+    }
+    this.pages.add(pagesItem);
+    return this;
+  }
+
+   /**
+   * Document preview pages
+   * @return pages
+  **/
+  @ApiModelProperty(value = "Document preview pages")
+  public List<PreviewPage> getPages() {
+    return pages;
+  }
+
+  public void setPages(List<PreviewPage> pages) {
+    this.pages = pages;
   }
 
 
@@ -73,22 +147,28 @@ public class BaseSettings {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    BaseSettings baseSettings = (BaseSettings) o;
-    return Objects.equals(this.fileInfo, baseSettings.fileInfo);
+    PreviewResult previewResult = (PreviewResult) o;
+    return Objects.equals(this.fileInfo, previewResult.fileInfo) &&
+        Objects.equals(this.size, previewResult.size) &&
+        Objects.equals(this.pagesCount, previewResult.pagesCount) &&
+        Objects.equals(this.pages, previewResult.pages);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fileInfo);
+    return Objects.hash(fileInfo, size, pagesCount, pages);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class BaseSettings {\n");
+    sb.append("class PreviewResult {\n");
     
     sb.append("    fileInfo: ").append(toIndentedString(fileInfo)).append("\n");
+    sb.append("    size: ").append(toIndentedString(size)).append("\n");
+    sb.append("    pagesCount: ").append(toIndentedString(pagesCount)).append("\n");
+    sb.append("    pages: ").append(toIndentedString(pages)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose Pty Ltd" file="VerifySettings.java">
+ * <copyright company="Aspose Pty Ltd" file="PreviewPage.java">
  *   Copyright (c) 2003-2021 Aspose Pty Ltd
  * </copyright>
  * <summary>
@@ -33,47 +33,97 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.groupdocs.cloud.signature.model.BaseSettings;
-import com.groupdocs.cloud.signature.model.FileInfo;
-import com.groupdocs.cloud.signature.model.VerifyOptions;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
- * Defines verify settings request
+ * Document preview page
  */
-@ApiModel(description = "Defines verify settings request")
-public class VerifySettings extends BaseSettings {
-  @SerializedName("options")
-  private List<VerifyOptions> options = null;
+@ApiModel(description = "Document preview page")
+public class PreviewPage {
+  @SerializedName("pageNumber")
+  private Integer pageNumber = null;
 
-  public VerifySettings options(List<VerifyOptions> options) {
-    this.options = options;
-    return this;
-  }
+  @SerializedName("filePath")
+  private String filePath = null;
 
-  public VerifySettings addOptionsItem(VerifyOptions optionsItem) {
-    if (this.options == null) {
-      this.options = new ArrayList<VerifyOptions>();
-    }
-    this.options.add(optionsItem);
+  @SerializedName("size")
+  private Long size = null;
+
+  @SerializedName("downloadUrl")
+  private String downloadUrl = null;
+
+  public PreviewPage pageNumber(Integer pageNumber) {
+    this.pageNumber = pageNumber;
     return this;
   }
 
    /**
-   * Gets or sets options to perform document verification
-   * @return options
+   * Page number
+   * @return pageNumber
   **/
-  @ApiModelProperty(value = "Gets or sets options to perform document verification")
-  public List<VerifyOptions> getOptions() {
-    return options;
+  @ApiModelProperty(required = true, value = "Page number")
+  public Integer getPageNumber() {
+    return pageNumber;
   }
 
-  public void setOptions(List<VerifyOptions> options) {
-    this.options = options;
+  public void setPageNumber(Integer pageNumber) {
+    this.pageNumber = pageNumber;
+  }
+
+  public PreviewPage filePath(String filePath) {
+    this.filePath = filePath;
+    return this;
+  }
+
+   /**
+   * Page file path in storage
+   * @return filePath
+  **/
+  @ApiModelProperty(value = "Page file path in storage")
+  public String getFilePath() {
+    return filePath;
+  }
+
+  public void setFilePath(String filePath) {
+    this.filePath = filePath;
+  }
+
+  public PreviewPage size(Long size) {
+    this.size = size;
+    return this;
+  }
+
+   /**
+   * Page file size
+   * @return size
+  **/
+  @ApiModelProperty(required = true, value = "Page file size")
+  public Long getSize() {
+    return size;
+  }
+
+  public void setSize(Long size) {
+    this.size = size;
+  }
+
+  public PreviewPage downloadUrl(String downloadUrl) {
+    this.downloadUrl = downloadUrl;
+    return this;
+  }
+
+   /**
+   * Download url
+   * @return downloadUrl
+  **/
+  @ApiModelProperty(value = "Download url")
+  public String getDownloadUrl() {
+    return downloadUrl;
+  }
+
+  public void setDownloadUrl(String downloadUrl) {
+    this.downloadUrl = downloadUrl;
   }
 
 
@@ -85,23 +135,28 @@ public class VerifySettings extends BaseSettings {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    VerifySettings verifySettings = (VerifySettings) o;
-    return Objects.equals(this.options, verifySettings.options) &&
-        super.equals(o);
+    PreviewPage previewPage = (PreviewPage) o;
+    return Objects.equals(this.pageNumber, previewPage.pageNumber) &&
+        Objects.equals(this.filePath, previewPage.filePath) &&
+        Objects.equals(this.size, previewPage.size) &&
+        Objects.equals(this.downloadUrl, previewPage.downloadUrl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(options, super.hashCode());
+    return Objects.hash(pageNumber, filePath, size, downloadUrl);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class VerifySettings {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    options: ").append(toIndentedString(options)).append("\n");
+    sb.append("class PreviewPage {\n");
+    
+    sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
+    sb.append("    filePath: ").append(toIndentedString(filePath)).append("\n");
+    sb.append("    size: ").append(toIndentedString(size)).append("\n");
+    sb.append("    downloadUrl: ").append(toIndentedString(downloadUrl)).append("\n");
     sb.append("}");
     return sb.toString();
   }

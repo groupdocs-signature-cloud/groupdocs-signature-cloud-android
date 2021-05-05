@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="VerifyResult.java">
- *   Copyright (c) 2003-2020 Aspose Pty Ltd
+ *   Copyright (c) 2003-2021 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -58,10 +58,10 @@ public class VerifyResult {
   }
 
    /**
-   * Processed document basic info
+   * Processed document file info
    * @return fileInfo
   **/
-  @ApiModelProperty(value = "Processed document basic info")
+  @ApiModelProperty(value = "Processed document file info")
   public FileInfo getFileInfo() {
     return fileInfo;
   }

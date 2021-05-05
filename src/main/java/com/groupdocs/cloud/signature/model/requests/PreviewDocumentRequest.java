@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose Pty Ltd" file="VerifySettings.java">
+ * <copyright company="Aspose Pty Ltd" file="PreviewDocumentRequest.java">
  *   Copyright (c) 2003-2021 Aspose Pty Ltd
  * </copyright>
  * <summary>
@@ -25,7 +25,7 @@
  * --------------------------------------------------------------------------------------------------------------------
  */
 
-package com.groupdocs.cloud.signature.model;
+package com.groupdocs.cloud.signature.model.requests;
 
 import java.util.Objects;
 import com.google.gson.TypeAdapter;
@@ -33,75 +33,73 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.groupdocs.cloud.signature.model.BaseSettings;
-import com.groupdocs.cloud.signature.model.FileInfo;
-import com.groupdocs.cloud.signature.model.VerifyOptions;
+import com.groupdocs.cloud.signature.model.*;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.File;
 
 /**
- * Defines verify settings request
+ * Request model for previewDocument method.
  */
-@ApiModel(description = "Defines verify settings request")
-public class VerifySettings extends BaseSettings {
-  @SerializedName("options")
-  private List<VerifyOptions> options = null;
-
-  public VerifySettings options(List<VerifyOptions> options) {
-    this.options = options;
-    return this;
-  }
-
-  public VerifySettings addOptionsItem(VerifyOptions optionsItem) {
-    if (this.options == null) {
-      this.options = new ArrayList<VerifyOptions>();
+public class PreviewDocumentRequest {
+    
+    /**
+    * Initializes a new instance of the PreviewDocumentRequest class.
+    */      
+    public PreviewDocumentRequest()
+    {
     }
-    this.options.add(optionsItem);
-    return this;
-  }
 
-   /**
-   * Gets or sets options to perform document verification
-   * @return options
+    /**
+    * Initializes a new instance of the PreviewDocumentRequest class.    
+    * @param previewSettings Document preview settings
+    */
+    public PreviewDocumentRequest(PreviewSettings previewSettings)
+    {
+        this.previewSettings = previewSettings;
+    }
+
+  @SerializedName("previewSettings")
+  private PreviewSettings previewSettings = null;
+
+  /**
+   * Document preview settings
+   * @return Document preview settings
   **/
-  @ApiModelProperty(value = "Gets or sets options to perform document verification")
-  public List<VerifyOptions> getOptions() {
-    return options;
+  @ApiModelProperty(example = "new PreviewSettings()", required = true, value = "Document preview settings")
+  public PreviewSettings getpreviewSettings() {
+    return previewSettings;
   }
 
-  public void setOptions(List<VerifyOptions> options) {
-    this.options = options;
+  public void setpreviewSettings(PreviewSettings previewSettings) {
+    this.previewSettings = previewSettings;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
     }
+
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    VerifySettings verifySettings = (VerifySettings) o;
-    return Objects.equals(this.options, verifySettings.options) &&
-        super.equals(o);
+    
+    PreviewDocumentRequest request = (PreviewDocumentRequest) o;
+    return Objects.equals(this.previewSettings, request.previewSettings);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(options, super.hashCode());
+    return Objects.hash(previewSettings);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class VerifySettings {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    options: ").append(toIndentedString(options)).append("\n");
+    sb.append("class PreviewDocument {\n");
+    sb.append("    previewSettings: ").append(toIndentedString(previewSettings)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -116,6 +114,5 @@ public class VerifySettings extends BaseSettings {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
 

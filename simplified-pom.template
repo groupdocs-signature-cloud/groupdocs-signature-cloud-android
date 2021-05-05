@@ -4,13 +4,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.groupdocs</groupId>
-    <artifactId>groupdocs-signature-cloud</artifactId>
+    <artifactId>groupdocs-signature-cloud-android</artifactId>
     <version>{VERSION}</version>
     <packaging>jar</packaging>
 
-    <name>groupdocs-signature-cloud</name>
+    <name>groupdocs-signature-cloud-android</name>
     <description>Java library for communicating with the GroupDocs.Signature Cloud API</description>
-    <url>https://github.com/groupdocs-signature-cloud/groupdocs-signature-cloud-java</url>
+    <url>https://github.com/groupdocs-signature-cloud/groupdocs-signature-cloud-android</url>
 
     <licenses>
         <license>

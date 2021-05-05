@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="SignTextOptions.java">
- *   Copyright (c) 2003-2020 Aspose Pty Ltd
+ *   Copyright (c) 2003-2021 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -510,6 +510,9 @@ public class SignTextOptions extends SignOptions {
   @SerializedName("zorder")
   private Integer zorder = null;
 
+  @SerializedName("_native")
+  private Boolean _native = null;
+
   public SignTextOptions left(Integer left) {
     this.left = left;
     return this;
@@ -888,6 +891,24 @@ public class SignTextOptions extends SignOptions {
     this.zorder = zorder;
   }
 
+  public SignTextOptions _native(Boolean _native) {
+    this._native = _native;
+    return this;
+  }
+
+   /**
+   * Gets or sets the native attribute. If it is set document specific signatures could be used. Native text watermark for WordProcessing documents is different than regular, for example.             
+   * @return _native
+  **/
+  @ApiModelProperty(required = true, value = "Gets or sets the native attribute. If it is set document specific signatures could be used. Native text watermark for WordProcessing documents is different than regular, for example.             ")
+  public Boolean getNative() {
+    return _native;
+  }
+
+  public void setNative(Boolean _native) {
+    this._native = _native;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -919,12 +940,13 @@ public class SignTextOptions extends SignOptions {
         Objects.equals(this.textHorizontalAlignment, signTextOptions.textHorizontalAlignment) &&
         Objects.equals(this.textVerticalAlignment, signTextOptions.textVerticalAlignment) &&
         Objects.equals(this.zorder, signTextOptions.zorder) &&
+        Objects.equals(this._native, signTextOptions._native) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(left, top, width, height, locationMeasureType, sizeMeasureType, stretch, rotationAngle, horizontalAlignment, verticalAlignment, margin, marginMeasureType, text, font, foreColor, backgroundColor, backgroundBrush, border, textHorizontalAlignment, textVerticalAlignment, zorder, super.hashCode());
+    return Objects.hash(left, top, width, height, locationMeasureType, sizeMeasureType, stretch, rotationAngle, horizontalAlignment, verticalAlignment, margin, marginMeasureType, text, font, foreColor, backgroundColor, backgroundBrush, border, textHorizontalAlignment, textVerticalAlignment, zorder, _native, super.hashCode());
   }
 
 
@@ -954,6 +976,7 @@ public class SignTextOptions extends SignOptions {
     sb.append("    textHorizontalAlignment: ").append(toIndentedString(textHorizontalAlignment)).append("\n");
     sb.append("    textVerticalAlignment: ").append(toIndentedString(textVerticalAlignment)).append("\n");
     sb.append("    zorder: ").append(toIndentedString(zorder)).append("\n");
+    sb.append("    _native: ").append(toIndentedString(_native)).append("\n");
     sb.append("}");
     return sb.toString();
   }

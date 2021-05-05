@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="DigitalSignature.java">
- *   Copyright (c) 2003-2020 Aspose Pty Ltd
+ *   Copyright (c) 2003-2021 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -33,6 +33,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.groupdocs.cloud.signature.model.PdfDigitalSignature;
 import com.groupdocs.cloud.signature.model.Signature;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -52,6 +53,9 @@ public class DigitalSignature extends Signature {
 
   @SerializedName("signTime")
   private OffsetDateTime signTime = null;
+
+  @SerializedName("pdfDigitalSignature")
+  private PdfDigitalSignature pdfDigitalSignature = null;
 
   public DigitalSignature comments(String comments) {
     this.comments = comments;
@@ -107,6 +111,24 @@ public class DigitalSignature extends Signature {
     this.signTime = signTime;
   }
 
+  public DigitalSignature pdfDigitalSignature(PdfDigitalSignature pdfDigitalSignature) {
+    this.pdfDigitalSignature = pdfDigitalSignature;
+    return this;
+  }
+
+   /**
+   * Pdf digital signature properties
+   * @return pdfDigitalSignature
+  **/
+  @ApiModelProperty(value = "Pdf digital signature properties")
+  public PdfDigitalSignature getPdfDigitalSignature() {
+    return pdfDigitalSignature;
+  }
+
+  public void setPdfDigitalSignature(PdfDigitalSignature pdfDigitalSignature) {
+    this.pdfDigitalSignature = pdfDigitalSignature;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -120,12 +142,13 @@ public class DigitalSignature extends Signature {
     return Objects.equals(this.comments, digitalSignature.comments) &&
         Objects.equals(this.isValid, digitalSignature.isValid) &&
         Objects.equals(this.signTime, digitalSignature.signTime) &&
+        Objects.equals(this.pdfDigitalSignature, digitalSignature.pdfDigitalSignature) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(comments, isValid, signTime, super.hashCode());
+    return Objects.hash(comments, isValid, signTime, pdfDigitalSignature, super.hashCode());
   }
 
 
@@ -137,6 +160,7 @@ public class DigitalSignature extends Signature {
     sb.append("    comments: ").append(toIndentedString(comments)).append("\n");
     sb.append("    isValid: ").append(toIndentedString(isValid)).append("\n");
     sb.append("    signTime: ").append(toIndentedString(signTime)).append("\n");
+    sb.append("    pdfDigitalSignature: ").append(toIndentedString(pdfDigitalSignature)).append("\n");
     sb.append("}");
     return sb.toString();
   }

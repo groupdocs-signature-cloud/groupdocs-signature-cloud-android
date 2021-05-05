@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd">
- *   Copyright (c) 2003-2020 Aspose Pty Ltd
+ *   Copyright (c) 2003-2021 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -46,6 +46,8 @@ public class TestFiles {
     public static ArrayList<TestFile> WordProcessingStorage;
     public static ArrayList<TestFile> WordProcessingStorageSigned;        
     public static ArrayList<TestFile> AdditionalStorage;        
+    
+    public static TestFile NotExist = new TestFile() {{ path = "some-folder\\NotExist.docx"; }};
 
     static {
 

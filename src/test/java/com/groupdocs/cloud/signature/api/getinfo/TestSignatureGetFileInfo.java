@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd">
- *   Copyright (c) 2003-2020 Aspose Pty Ltd
+ *   Copyright (c) 2003-2021 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -58,6 +58,22 @@ public class TestSignatureGetFileInfo extends BaseApiTest {
         assertEquals("MaxPageWidth", response.getWidthForMaxHeight().intValue(), testFile.getMaxPageWidth());
         assertEquals("PagesCount", response.getPagesCount().intValue(), testFile.getPagesCount());
         assertEquals("Path", response.getFileInfo().getFilePath(), testFile.getPath());
-
     }
+
+    @Test
+    public void getInfoReturnsFileNotFoundTest()
+    {
+        // Arrange
+        InfoSettings infoSettings = new InfoSettings();
+        infoSettings.setFileInfo(TestFiles.NotExist.ToFileInfo());
+        GetInfoRequest request = new GetInfoRequest(infoSettings);
+
+        // Act & Assert  
+        try {
+            infoApi.getInfo(request);
+            fail("Expected ApiException was not thrown.");
+        } catch (ApiException ex) {
+            assertEquals("Can't find file located at 'some-folder\\NotExist.docx'.", ex.getMessage());
+        }  
+    }    
 }  
