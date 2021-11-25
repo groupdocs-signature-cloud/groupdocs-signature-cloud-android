@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose Pty Ltd" file="SignOptions.java">
+ * <copyright company="Aspose Pty Ltd" file="DigitalSignatureAppearance.java">
  *   Copyright (c) 2003-2021 Aspose Pty Ltd
  * </copyright>
  * <summary>
@@ -33,37 +33,77 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.groupdocs.cloud.signature.model.OptionsBase;
-import com.groupdocs.cloud.signature.model.PagesSetup;
 import com.groupdocs.cloud.signature.model.SignatureAppearance;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Base container class for signature options data
+ * Describes appearance of Signature Line for Digital Signature. One Signature Line could be applied for only one Digital Signature. Signature Line always is on the first page. This feature may be useful for .docx, .doc, .odt and .xlsx file formats.
  */
-@ApiModel(description = "Base container class for signature options data")
-public class SignOptions extends OptionsBase {
-  @SerializedName("appearance")
-  private SignatureAppearance appearance = null;
+@ApiModel(description = "Describes appearance of Signature Line for Digital Signature. One Signature Line could be applied for only one Digital Signature. Signature Line always is on the first page. This feature may be useful for .docx, .doc, .odt and .xlsx file formats.")
+public class DigitalSignatureAppearance extends SignatureAppearance {
+  @SerializedName("email")
+  private String email = null;
 
-  public SignOptions appearance(SignatureAppearance appearance) {
-    this.appearance = appearance;
+  @SerializedName("signer")
+  private String signer = null;
+
+  @SerializedName("title")
+  private String title = null;
+
+  public DigitalSignatureAppearance email(String email) {
+    this.email = email;
     return this;
   }
 
    /**
-   * Specifies Appearance with additional properties for this options instance
-   * @return appearance
+   * Gets or sets a email that will be displayed in signature line.
+   * @return email
   **/
-  @ApiModelProperty(value = "Specifies Appearance with additional properties for this options instance")
-  public SignatureAppearance getAppearance() {
-    return appearance;
+  @ApiModelProperty(value = "Gets or sets a email that will be displayed in signature line.")
+  public String getEmail() {
+    return email;
   }
 
-  public void setAppearance(SignatureAppearance appearance) {
-    this.appearance = appearance;
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+  public DigitalSignatureAppearance signer(String signer) {
+    this.signer = signer;
+    return this;
+  }
+
+   /**
+   * Gets or sets signer name for signature line.
+   * @return signer
+  **/
+  @ApiModelProperty(value = "Gets or sets signer name for signature line.")
+  public String getSigner() {
+    return signer;
+  }
+
+  public void setSigner(String signer) {
+    this.signer = signer;
+  }
+
+  public DigitalSignatureAppearance title(String title) {
+    this.title = title;
+    return this;
+  }
+
+   /**
+   * Gets or sets a title for signature line.
+   * @return title
+  **/
+  @ApiModelProperty(value = "Gets or sets a title for signature line.")
+  public String getTitle() {
+    return title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
   }
 
 
@@ -75,23 +115,27 @@ public class SignOptions extends OptionsBase {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SignOptions signOptions = (SignOptions) o;
-    return Objects.equals(this.appearance, signOptions.appearance) &&
+    DigitalSignatureAppearance digitalSignatureAppearance = (DigitalSignatureAppearance) o;
+    return Objects.equals(this.email, digitalSignatureAppearance.email) &&
+        Objects.equals(this.signer, digitalSignatureAppearance.signer) &&
+        Objects.equals(this.title, digitalSignatureAppearance.title) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(appearance, super.hashCode());
+    return Objects.hash(email, signer, title, super.hashCode());
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SignOptions {\n");
+    sb.append("class DigitalSignatureAppearance {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    appearance: ").append(toIndentedString(appearance)).append("\n");
+    sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    signer: ").append(toIndentedString(signer)).append("\n");
+    sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("}");
     return sb.toString();
   }

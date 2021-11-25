@@ -37,6 +37,7 @@ import com.groupdocs.cloud.signature.model.BorderLine;
 import com.groupdocs.cloud.signature.model.Padding;
 import com.groupdocs.cloud.signature.model.PagesSetup;
 import com.groupdocs.cloud.signature.model.SignImageOptions;
+import com.groupdocs.cloud.signature.model.SignatureAppearance;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;

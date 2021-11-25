@@ -59,7 +59,11 @@ public class UpdateOptions {
     
     QRCODE("QRCode"),
     
-    STAMP("Stamp");
+    STAMP("Stamp"),
+    
+    FORMFIELD("FormField"),
+    
+    METADATA("Metadata");
 
     private String value;
 

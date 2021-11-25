@@ -35,6 +35,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.groupdocs.cloud.signature.model.FileInfo;
 import com.groupdocs.cloud.signature.model.PageInfo;
+import com.groupdocs.cloud.signature.model.Signature;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -76,6 +77,9 @@ public class InfoResult {
 
   @SerializedName("pages")
   private List<PageInfo> pages = null;
+
+  @SerializedName("signatures")
+  private List<Signature> signatures = null;
 
   public InfoResult fileInfo(FileInfo fileInfo) {
     this.fileInfo = fileInfo;
@@ -265,6 +269,32 @@ public class InfoResult {
     this.pages = pages;
   }
 
+  public InfoResult signatures(List<Signature> signatures) {
+    this.signatures = signatures;
+    return this;
+  }
+
+  public InfoResult addSignaturesItem(Signature signaturesItem) {
+    if (this.signatures == null) {
+      this.signatures = new ArrayList<Signature>();
+    }
+    this.signatures.add(signaturesItem);
+    return this;
+  }
+
+   /**
+   * Collection of document signatures
+   * @return signatures
+  **/
+  @ApiModelProperty(value = "Collection of document signatures")
+  public List<Signature> getSignatures() {
+    return signatures;
+  }
+
+  public void setSignatures(List<Signature> signatures) {
+    this.signatures = signatures;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -284,12 +314,13 @@ public class InfoResult {
         Objects.equals(this.dateModified, infoResult.dateModified) &&
         Objects.equals(this.widthForMaxHeight, infoResult.widthForMaxHeight) &&
         Objects.equals(this.maxPageHeight, infoResult.maxPageHeight) &&
-        Objects.equals(this.pages, infoResult.pages);
+        Objects.equals(this.pages, infoResult.pages) &&
+        Objects.equals(this.signatures, infoResult.signatures);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fileInfo, extension, fileFormat, size, pagesCount, dateCreated, dateModified, widthForMaxHeight, maxPageHeight, pages);
+    return Objects.hash(fileInfo, extension, fileFormat, size, pagesCount, dateCreated, dateModified, widthForMaxHeight, maxPageHeight, pages, signatures);
   }
 
 
@@ -308,6 +339,7 @@ public class InfoResult {
     sb.append("    widthForMaxHeight: ").append(toIndentedString(widthForMaxHeight)).append("\n");
     sb.append("    maxPageHeight: ").append(toIndentedString(maxPageHeight)).append("\n");
     sb.append("    pages: ").append(toIndentedString(pages)).append("\n");
+    sb.append("    signatures: ").append(toIndentedString(signatures)).append("\n");
     sb.append("}");
     return sb.toString();
   }

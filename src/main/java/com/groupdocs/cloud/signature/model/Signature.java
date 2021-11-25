@@ -60,7 +60,11 @@ public class Signature {
     
     QRCODE("QRCode"),
     
-    STAMP("Stamp");
+    STAMP("Stamp"),
+    
+    FORMFIELD("FormField"),
+    
+    METADATA("Metadata");
 
     private String value;
 

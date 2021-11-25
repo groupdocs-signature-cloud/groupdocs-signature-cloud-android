@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose Pty Ltd" file="DeleteOptions.java">
+ * <copyright company="Aspose Pty Ltd" file="FormFieldSignature.java">
  *   Copyright (c) 2003-2021 Aspose Pty Ltd
  * </copyright>
  * <summary>
@@ -33,41 +33,40 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.groupdocs.cloud.signature.model.Signature;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import org.threeten.bp.OffsetDateTime;
 
 /**
- * Base container class for delete signature options
+ * Contains Form field signature properties
  */
-@ApiModel(description = "Base container class for delete signature options")
-public class DeleteOptions {
+@ApiModel(description = "Contains Form field signature properties")
+public class FormFieldSignature extends Signature {
+  @SerializedName("name")
+  private String name = null;
+
   /**
-   * Specifies the type of signature
+   * Specifies Form field type
    */
-  @JsonAdapter(SignatureTypeEnum.Adapter.class)
-  public enum SignatureTypeEnum {
-    NONE("None"),
-    
+  @JsonAdapter(TypeEnum.Adapter.class)
+  public enum TypeEnum {
     TEXT("Text"),
     
-    IMAGE("Image"),
+    CHECKBOX("Checkbox"),
     
-    DIGITAL("Digital"),
+    COMBOBOX("Combobox"),
     
-    BARCODE("Barcode"),
+    DIGITALSIGNATURE("DigitalSignature"),
     
-    QRCODE("QRCode"),
+    RADIO("Radio"),
     
-    STAMP("Stamp"),
-    
-    FORMFIELD("FormField"),
-    
-    METADATA("Metadata");
+    NONE("None");
 
     private String value;
 
-    SignatureTypeEnum(String value) {
+    TypeEnum(String value) {
       this.value = value;
     }
 
@@ -80,8 +79,8 @@ public class DeleteOptions {
       return String.valueOf(value);
     }
 
-    public static SignatureTypeEnum fromValue(String text) {
-      for (SignatureTypeEnum b : SignatureTypeEnum.values()) {
+    public static TypeEnum fromValue(String text) {
+      for (TypeEnum b : TypeEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
           return b;
         }
@@ -89,60 +88,57 @@ public class DeleteOptions {
       return null;
     }
 
-    public static class Adapter extends TypeAdapter<SignatureTypeEnum> {
+    public static class Adapter extends TypeAdapter<TypeEnum> {
       @Override
-      public void write(final JsonWriter jsonWriter, final SignatureTypeEnum enumeration) throws IOException {
+      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
         jsonWriter.value(enumeration.getValue());
       }
 
       @Override
-      public SignatureTypeEnum read(final JsonReader jsonReader) throws IOException {
+      public TypeEnum read(final JsonReader jsonReader) throws IOException {
         String value = jsonReader.nextString();
-        return SignatureTypeEnum.fromValue(String.valueOf(value));
+        return TypeEnum.fromValue(String.valueOf(value));
       }
     }
   }
 
-  @SerializedName("signatureType")
-  private SignatureTypeEnum signatureType = null;
+  @SerializedName("type")
+  private TypeEnum type = null;
 
-  @SerializedName("signatureId")
-  private String signatureId = null;
-
-  public DeleteOptions signatureType(SignatureTypeEnum signatureType) {
-    this.signatureType = signatureType;
+  public FormFieldSignature name(String name) {
+    this.name = name;
     return this;
   }
 
    /**
-   * Specifies the type of signature
-   * @return signatureType
+   * Specifies unique form field name
+   * @return name
   **/
-  @ApiModelProperty(required = true, value = "Specifies the type of signature")
-  public SignatureTypeEnum getSignatureType() {
-    return signatureType;
+  @ApiModelProperty(value = "Specifies unique form field name")
+  public String getName() {
+    return name;
   }
 
-  public void setSignatureType(SignatureTypeEnum signatureType) {
-    this.signatureType = signatureType;
+  public void setName(String name) {
+    this.name = name;
   }
 
-  public DeleteOptions signatureId(String signatureId) {
-    this.signatureId = signatureId;
+  public FormFieldSignature type(TypeEnum type) {
+    this.type = type;
     return this;
   }
 
    /**
-   * Unique signature identifier to modify signature in the document over Update or Delete methods. This property will be set automatically after Sign or Search method being called. If this property was saved before it can be set manually to manipulate the signature.              
-   * @return signatureId
+   * Specifies Form field type
+   * @return type
   **/
-  @ApiModelProperty(value = "Unique signature identifier to modify signature in the document over Update or Delete methods. This property will be set automatically after Sign or Search method being called. If this property was saved before it can be set manually to manipulate the signature.              ")
-  public String getSignatureId() {
-    return signatureId;
+  @ApiModelProperty(required = true, value = "Specifies Form field type")
+  public TypeEnum getType() {
+    return type;
   }
 
-  public void setSignatureId(String signatureId) {
-    this.signatureId = signatureId;
+  public void setType(TypeEnum type) {
+    this.type = type;
   }
 
 
@@ -154,24 +150,25 @@ public class DeleteOptions {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DeleteOptions deleteOptions = (DeleteOptions) o;
-    return Objects.equals(this.signatureType, deleteOptions.signatureType) &&
-        Objects.equals(this.signatureId, deleteOptions.signatureId);
+    FormFieldSignature formFieldSignature = (FormFieldSignature) o;
+    return Objects.equals(this.name, formFieldSignature.name) &&
+        Objects.equals(this.type, formFieldSignature.type) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(signatureType, signatureId);
+    return Objects.hash(name, type, super.hashCode());
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DeleteOptions {\n");
-    
-    sb.append("    signatureType: ").append(toIndentedString(signatureType)).append("\n");
-    sb.append("    signatureId: ").append(toIndentedString(signatureId)).append("\n");
+    sb.append("class FormFieldSignature {\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }

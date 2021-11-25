@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose Pty Ltd" file="InfoSettings.java">
+ * <copyright company="Aspose Pty Ltd" file="CheckboxFormFieldSignature.java">
  *   Copyright (c) 2003-2021 Aspose Pty Ltd
  * </copyright>
  * <summary>
@@ -33,36 +33,36 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.groupdocs.cloud.signature.model.BaseSettings;
-import com.groupdocs.cloud.signature.model.FileInfo;
+import com.groupdocs.cloud.signature.model.FormFieldSignature;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import org.threeten.bp.OffsetDateTime;
 
 /**
- * Defines document information request settings
+ * Contains check-box input form field signature properties
  */
-@ApiModel(description = "Defines document information request settings")
-public class InfoSettings extends BaseSettings {
-  @SerializedName("showDeletedSignaturesInfo")
-  private Boolean showDeletedSignaturesInfo = null;
+@ApiModel(description = "Contains check-box input form field signature properties")
+public class CheckboxFormFieldSignature extends FormFieldSignature {
+  @SerializedName("checked")
+  private Boolean checked = null;
 
-  public InfoSettings showDeletedSignaturesInfo(Boolean showDeletedSignaturesInfo) {
-    this.showDeletedSignaturesInfo = showDeletedSignaturesInfo;
+  public CheckboxFormFieldSignature checked(Boolean checked) {
+    this.checked = checked;
     return this;
   }
 
    /**
-   * Gets or sets flag that includes deleted signatures into Document Info result.
-   * @return showDeletedSignaturesInfo
+   * Gets or sets checked value of form field check-box input
+   * @return checked
   **/
-  @ApiModelProperty(required = true, value = "Gets or sets flag that includes deleted signatures into Document Info result.")
-  public Boolean getShowDeletedSignaturesInfo() {
-    return showDeletedSignaturesInfo;
+  @ApiModelProperty(required = true, value = "Gets or sets checked value of form field check-box input")
+  public Boolean getChecked() {
+    return checked;
   }
 
-  public void setShowDeletedSignaturesInfo(Boolean showDeletedSignaturesInfo) {
-    this.showDeletedSignaturesInfo = showDeletedSignaturesInfo;
+  public void setChecked(Boolean checked) {
+    this.checked = checked;
   }
 
 
@@ -74,23 +74,23 @@ public class InfoSettings extends BaseSettings {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    InfoSettings infoSettings = (InfoSettings) o;
-    return Objects.equals(this.showDeletedSignaturesInfo, infoSettings.showDeletedSignaturesInfo) &&
+    CheckboxFormFieldSignature checkboxFormFieldSignature = (CheckboxFormFieldSignature) o;
+    return Objects.equals(this.checked, checkboxFormFieldSignature.checked) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(showDeletedSignaturesInfo, super.hashCode());
+    return Objects.hash(checked, super.hashCode());
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class InfoSettings {\n");
+    sb.append("class CheckboxFormFieldSignature {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    showDeletedSignaturesInfo: ").append(toIndentedString(showDeletedSignaturesInfo)).append("\n");
+    sb.append("    checked: ").append(toIndentedString(checked)).append("\n");
     sb.append("}");
     return sb.toString();
   }

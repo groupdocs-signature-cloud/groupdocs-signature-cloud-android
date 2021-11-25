@@ -45,16 +45,25 @@ public class SignatureDeserializer implements JsonDeserializer<Signature>
 {
     Gson gson;
     Map<String, Class<? extends Signature>> registry;
+    Map<String, Class<? extends Signature>> registryFf;
 
     SignatureDeserializer(Gson _gson)
     {
+        gson = _gson;
+        
         registry = new HashMap<String, Class<? extends Signature>>();
         registry.put("Barcode", BarcodeSignature.class);
         registry.put("QRCode", QRCodeSignature.class);
         registry.put("Digital", DigitalSignature.class);
         registry.put("Image", ImageSignature.class);
         registry.put("Text", TextSignature.class);
-        gson = _gson;
+
+        registryFf = new HashMap<String, Class<? extends Signature>>();
+        registryFf.put("Checkbox", CheckboxFormFieldSignature.class);
+        registryFf.put("Text", TextFormFieldSignature.class);
+        registryFf.put("Combobox", ComboboxFormFieldSignature.class);
+        registryFf.put("DigitalSignature", DigitalFormFieldSignature.class);
+        registryFf.put("Radio", RadioButtonFormFieldSignature.class);        
     }
 
 
@@ -64,9 +73,20 @@ public class SignatureDeserializer implements JsonDeserializer<Signature>
     {
         JsonObject signatureObject = json.getAsJsonObject();
         JsonElement signatureTypeElement = signatureObject.get("signatureType");
-        Class<? extends Signature> signatureInstanceClass = registry.get(signatureTypeElement.getAsString());
-        if(signatureInstanceClass == null)
-            signatureInstanceClass = Signature.class;
-        return gson.fromJson(json, signatureInstanceClass);
+        String signatureType = signatureTypeElement.getAsString();
+        if(signatureType == "FormField") {
+            JsonElement formFieldTypeElement = signatureObject.get("type");
+            String formFieldType = formFieldTypeElement.getAsString();
+            Class<? extends Signature> signatureInstanceClass = registryFf.get(signatureType);
+            if(signatureInstanceClass == null)
+                signatureInstanceClass = FormFieldSignature.class;
+            return gson.fromJson(json, signatureInstanceClass);            
+        }
+        else {
+            Class<? extends Signature> signatureInstanceClass = registry.get(signatureType);
+            if(signatureInstanceClass == null)
+                signatureInstanceClass = Signature.class;
+            return gson.fromJson(json, signatureInstanceClass);
+        }
     }
 }

@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose Pty Ltd" file="InfoSettings.java">
+ * <copyright company="Aspose Pty Ltd" file="DigitalFormFieldSignature.java">
  *   Copyright (c) 2003-2021 Aspose Pty Ltd
  * </copyright>
  * <summary>
@@ -33,36 +33,36 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.groupdocs.cloud.signature.model.BaseSettings;
-import com.groupdocs.cloud.signature.model.FileInfo;
+import com.groupdocs.cloud.signature.model.FormFieldSignature;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import org.threeten.bp.OffsetDateTime;
 
 /**
- * Defines document information request settings
+ * Contains digital signature input form field properties for Pdf Documents
  */
-@ApiModel(description = "Defines document information request settings")
-public class InfoSettings extends BaseSettings {
-  @SerializedName("showDeletedSignaturesInfo")
-  private Boolean showDeletedSignaturesInfo = null;
+@ApiModel(description = "Contains digital signature input form field properties for Pdf Documents")
+public class DigitalFormFieldSignature extends FormFieldSignature {
+  @SerializedName("signed")
+  private Boolean signed = null;
 
-  public InfoSettings showDeletedSignaturesInfo(Boolean showDeletedSignaturesInfo) {
-    this.showDeletedSignaturesInfo = showDeletedSignaturesInfo;
+  public DigitalFormFieldSignature signed(Boolean signed) {
+    this.signed = signed;
     return this;
   }
 
    /**
-   * Gets or sets flag that includes deleted signatures into Document Info result.
-   * @return showDeletedSignaturesInfo
+   * Property that shows if Form-field Signature was signed with digital certificate
+   * @return signed
   **/
-  @ApiModelProperty(required = true, value = "Gets or sets flag that includes deleted signatures into Document Info result.")
-  public Boolean getShowDeletedSignaturesInfo() {
-    return showDeletedSignaturesInfo;
+  @ApiModelProperty(required = true, value = "Property that shows if Form-field Signature was signed with digital certificate")
+  public Boolean getSigned() {
+    return signed;
   }
 
-  public void setShowDeletedSignaturesInfo(Boolean showDeletedSignaturesInfo) {
-    this.showDeletedSignaturesInfo = showDeletedSignaturesInfo;
+  public void setSigned(Boolean signed) {
+    this.signed = signed;
   }
 
 
@@ -74,23 +74,23 @@ public class InfoSettings extends BaseSettings {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    InfoSettings infoSettings = (InfoSettings) o;
-    return Objects.equals(this.showDeletedSignaturesInfo, infoSettings.showDeletedSignaturesInfo) &&
+    DigitalFormFieldSignature digitalFormFieldSignature = (DigitalFormFieldSignature) o;
+    return Objects.equals(this.signed, digitalFormFieldSignature.signed) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(showDeletedSignaturesInfo, super.hashCode());
+    return Objects.hash(signed, super.hashCode());
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class InfoSettings {\n");
+    sb.append("class DigitalFormFieldSignature {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    showDeletedSignaturesInfo: ").append(toIndentedString(showDeletedSignaturesInfo)).append("\n");
+    sb.append("    signed: ").append(toIndentedString(signed)).append("\n");
     sb.append("}");
     return sb.toString();
   }

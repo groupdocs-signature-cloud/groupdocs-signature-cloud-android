@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose Pty Ltd" file="InfoSettings.java">
+ * <copyright company="Aspose Pty Ltd" file="TextFormFieldSignature.java">
  *   Copyright (c) 2003-2021 Aspose Pty Ltd
  * </copyright>
  * <summary>
@@ -33,36 +33,36 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.groupdocs.cloud.signature.model.BaseSettings;
-import com.groupdocs.cloud.signature.model.FileInfo;
+import com.groupdocs.cloud.signature.model.FormFieldSignature;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import org.threeten.bp.OffsetDateTime;
 
 /**
- * Defines document information request settings
+ * Contains text input form field signature properties for Pdf Document
  */
-@ApiModel(description = "Defines document information request settings")
-public class InfoSettings extends BaseSettings {
-  @SerializedName("showDeletedSignaturesInfo")
-  private Boolean showDeletedSignaturesInfo = null;
+@ApiModel(description = "Contains text input form field signature properties for Pdf Document")
+public class TextFormFieldSignature extends FormFieldSignature {
+  @SerializedName("text")
+  private String text = null;
 
-  public InfoSettings showDeletedSignaturesInfo(Boolean showDeletedSignaturesInfo) {
-    this.showDeletedSignaturesInfo = showDeletedSignaturesInfo;
+  public TextFormFieldSignature text(String text) {
+    this.text = text;
     return this;
   }
 
    /**
-   * Gets or sets flag that includes deleted signatures into Document Info result.
-   * @return showDeletedSignaturesInfo
+   * Gets or sets text of form field text input
+   * @return text
   **/
-  @ApiModelProperty(required = true, value = "Gets or sets flag that includes deleted signatures into Document Info result.")
-  public Boolean getShowDeletedSignaturesInfo() {
-    return showDeletedSignaturesInfo;
+  @ApiModelProperty(value = "Gets or sets text of form field text input")
+  public String getText() {
+    return text;
   }
 
-  public void setShowDeletedSignaturesInfo(Boolean showDeletedSignaturesInfo) {
-    this.showDeletedSignaturesInfo = showDeletedSignaturesInfo;
+  public void setText(String text) {
+    this.text = text;
   }
 
 
@@ -74,23 +74,23 @@ public class InfoSettings extends BaseSettings {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    InfoSettings infoSettings = (InfoSettings) o;
-    return Objects.equals(this.showDeletedSignaturesInfo, infoSettings.showDeletedSignaturesInfo) &&
+    TextFormFieldSignature textFormFieldSignature = (TextFormFieldSignature) o;
+    return Objects.equals(this.text, textFormFieldSignature.text) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(showDeletedSignaturesInfo, super.hashCode());
+    return Objects.hash(text, super.hashCode());
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class InfoSettings {\n");
+    sb.append("class TextFormFieldSignature {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    showDeletedSignaturesInfo: ").append(toIndentedString(showDeletedSignaturesInfo)).append("\n");
+    sb.append("    text: ").append(toIndentedString(text)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose Pty Ltd" file="InfoSettings.java">
+ * <copyright company="Aspose Pty Ltd" file="ComboboxFormFieldSignature.java">
  *   Copyright (c) 2003-2021 Aspose Pty Ltd
  * </copyright>
  * <summary>
@@ -33,36 +33,67 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.groupdocs.cloud.signature.model.BaseSettings;
-import com.groupdocs.cloud.signature.model.FileInfo;
+import com.groupdocs.cloud.signature.model.FormFieldSignature;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import org.threeten.bp.OffsetDateTime;
 
 /**
- * Defines document information request settings
+ * Contains combo-box input form field signature properties
  */
-@ApiModel(description = "Defines document information request settings")
-public class InfoSettings extends BaseSettings {
-  @SerializedName("showDeletedSignaturesInfo")
-  private Boolean showDeletedSignaturesInfo = null;
+@ApiModel(description = "Contains combo-box input form field signature properties")
+public class ComboboxFormFieldSignature extends FormFieldSignature {
+  @SerializedName("selected")
+  private String selected = null;
 
-  public InfoSettings showDeletedSignaturesInfo(Boolean showDeletedSignaturesInfo) {
-    this.showDeletedSignaturesInfo = showDeletedSignaturesInfo;
+  @SerializedName("items")
+  private List<String> items = null;
+
+  public ComboboxFormFieldSignature selected(String selected) {
+    this.selected = selected;
     return this;
   }
 
    /**
-   * Gets or sets flag that includes deleted signatures into Document Info result.
-   * @return showDeletedSignaturesInfo
+   * Get or set selected value
+   * @return selected
   **/
-  @ApiModelProperty(required = true, value = "Gets or sets flag that includes deleted signatures into Document Info result.")
-  public Boolean getShowDeletedSignaturesInfo() {
-    return showDeletedSignaturesInfo;
+  @ApiModelProperty(value = "Get or set selected value")
+  public String getSelected() {
+    return selected;
   }
 
-  public void setShowDeletedSignaturesInfo(Boolean showDeletedSignaturesInfo) {
-    this.showDeletedSignaturesInfo = showDeletedSignaturesInfo;
+  public void setSelected(String selected) {
+    this.selected = selected;
+  }
+
+  public ComboboxFormFieldSignature items(List<String> items) {
+    this.items = items;
+    return this;
+  }
+
+  public ComboboxFormFieldSignature addItemsItem(String itemsItem) {
+    if (this.items == null) {
+      this.items = new ArrayList<String>();
+    }
+    this.items.add(itemsItem);
+    return this;
+  }
+
+   /**
+   * Get or set combo-box options list
+   * @return items
+  **/
+  @ApiModelProperty(value = "Get or set combo-box options list")
+  public List<String> getItems() {
+    return items;
+  }
+
+  public void setItems(List<String> items) {
+    this.items = items;
   }
 
 
@@ -74,23 +105,25 @@ public class InfoSettings extends BaseSettings {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    InfoSettings infoSettings = (InfoSettings) o;
-    return Objects.equals(this.showDeletedSignaturesInfo, infoSettings.showDeletedSignaturesInfo) &&
+    ComboboxFormFieldSignature comboboxFormFieldSignature = (ComboboxFormFieldSignature) o;
+    return Objects.equals(this.selected, comboboxFormFieldSignature.selected) &&
+        Objects.equals(this.items, comboboxFormFieldSignature.items) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(showDeletedSignaturesInfo, super.hashCode());
+    return Objects.hash(selected, items, super.hashCode());
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class InfoSettings {\n");
+    sb.append("class ComboboxFormFieldSignature {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    showDeletedSignaturesInfo: ").append(toIndentedString(showDeletedSignaturesInfo)).append("\n");
+    sb.append("    selected: ").append(toIndentedString(selected)).append("\n");
+    sb.append("    items: ").append(toIndentedString(items)).append("\n");
     sb.append("}");
     return sb.toString();
   }

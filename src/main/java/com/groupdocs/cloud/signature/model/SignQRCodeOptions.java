@@ -39,6 +39,7 @@ import com.groupdocs.cloud.signature.model.Color;
 import com.groupdocs.cloud.signature.model.Padding;
 import com.groupdocs.cloud.signature.model.PagesSetup;
 import com.groupdocs.cloud.signature.model.SignTextOptions;
+import com.groupdocs.cloud.signature.model.SignatureAppearance;
 import com.groupdocs.cloud.signature.model.SignatureFont;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

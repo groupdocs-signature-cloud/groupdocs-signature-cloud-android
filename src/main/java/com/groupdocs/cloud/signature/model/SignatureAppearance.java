@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose Pty Ltd" file="DeleteOptions.java">
+ * <copyright company="Aspose Pty Ltd" file="SignatureAppearance.java">
  *   Copyright (c) 2003-2021 Aspose Pty Ltd
  * </copyright>
  * <summary>
@@ -38,36 +38,30 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Base container class for delete signature options
+ * Appearance is a base class for keeping additional information for various options
  */
-@ApiModel(description = "Base container class for delete signature options")
-public class DeleteOptions {
+@ApiModel(description = "Appearance is a base class for keeping additional information for various options")
+public class SignatureAppearance {
   /**
-   * Specifies the type of signature
+   * Specifies the type of appearance
    */
-  @JsonAdapter(SignatureTypeEnum.Adapter.class)
-  public enum SignatureTypeEnum {
-    NONE("None"),
+  @JsonAdapter(AppearanceTypeEnum.Adapter.class)
+  public enum AppearanceTypeEnum {
+    UNDEFINED("Undefined"),
     
-    TEXT("Text"),
+    PDFTEXTANNOTATION("PdfTextAnnotation"),
+    
+    PDFTEXTSTICKER("PdfTextSticker"),
     
     IMAGE("Image"),
     
-    DIGITAL("Digital"),
+    DIGITALSIGNATURE("DigitalSignature"),
     
-    BARCODE("Barcode"),
-    
-    QRCODE("QRCode"),
-    
-    STAMP("Stamp"),
-    
-    FORMFIELD("FormField"),
-    
-    METADATA("Metadata");
+    PDFDIGITALSIGNATURE("PdfDigitalSignature");
 
     private String value;
 
-    SignatureTypeEnum(String value) {
+    AppearanceTypeEnum(String value) {
       this.value = value;
     }
 
@@ -80,8 +74,8 @@ public class DeleteOptions {
       return String.valueOf(value);
     }
 
-    public static SignatureTypeEnum fromValue(String text) {
-      for (SignatureTypeEnum b : SignatureTypeEnum.values()) {
+    public static AppearanceTypeEnum fromValue(String text) {
+      for (AppearanceTypeEnum b : AppearanceTypeEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
           return b;
         }
@@ -89,60 +83,39 @@ public class DeleteOptions {
       return null;
     }
 
-    public static class Adapter extends TypeAdapter<SignatureTypeEnum> {
+    public static class Adapter extends TypeAdapter<AppearanceTypeEnum> {
       @Override
-      public void write(final JsonWriter jsonWriter, final SignatureTypeEnum enumeration) throws IOException {
+      public void write(final JsonWriter jsonWriter, final AppearanceTypeEnum enumeration) throws IOException {
         jsonWriter.value(enumeration.getValue());
       }
 
       @Override
-      public SignatureTypeEnum read(final JsonReader jsonReader) throws IOException {
+      public AppearanceTypeEnum read(final JsonReader jsonReader) throws IOException {
         String value = jsonReader.nextString();
-        return SignatureTypeEnum.fromValue(String.valueOf(value));
+        return AppearanceTypeEnum.fromValue(String.valueOf(value));
       }
     }
   }
 
-  @SerializedName("signatureType")
-  private SignatureTypeEnum signatureType = null;
+  @SerializedName("appearanceType")
+  private AppearanceTypeEnum appearanceType = null;
 
-  @SerializedName("signatureId")
-  private String signatureId = null;
-
-  public DeleteOptions signatureType(SignatureTypeEnum signatureType) {
-    this.signatureType = signatureType;
+  public SignatureAppearance appearanceType(AppearanceTypeEnum appearanceType) {
+    this.appearanceType = appearanceType;
     return this;
   }
 
    /**
-   * Specifies the type of signature
-   * @return signatureType
+   * Specifies the type of appearance
+   * @return appearanceType
   **/
-  @ApiModelProperty(required = true, value = "Specifies the type of signature")
-  public SignatureTypeEnum getSignatureType() {
-    return signatureType;
+  @ApiModelProperty(required = true, value = "Specifies the type of appearance")
+  public AppearanceTypeEnum getAppearanceType() {
+    return appearanceType;
   }
 
-  public void setSignatureType(SignatureTypeEnum signatureType) {
-    this.signatureType = signatureType;
-  }
-
-  public DeleteOptions signatureId(String signatureId) {
-    this.signatureId = signatureId;
-    return this;
-  }
-
-   /**
-   * Unique signature identifier to modify signature in the document over Update or Delete methods. This property will be set automatically after Sign or Search method being called. If this property was saved before it can be set manually to manipulate the signature.              
-   * @return signatureId
-  **/
-  @ApiModelProperty(value = "Unique signature identifier to modify signature in the document over Update or Delete methods. This property will be set automatically after Sign or Search method being called. If this property was saved before it can be set manually to manipulate the signature.              ")
-  public String getSignatureId() {
-    return signatureId;
-  }
-
-  public void setSignatureId(String signatureId) {
-    this.signatureId = signatureId;
+  public void setAppearanceType(AppearanceTypeEnum appearanceType) {
+    this.appearanceType = appearanceType;
   }
 
 
@@ -154,24 +127,22 @@ public class DeleteOptions {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DeleteOptions deleteOptions = (DeleteOptions) o;
-    return Objects.equals(this.signatureType, deleteOptions.signatureType) &&
-        Objects.equals(this.signatureId, deleteOptions.signatureId);
+    SignatureAppearance signatureAppearance = (SignatureAppearance) o;
+    return Objects.equals(this.appearanceType, signatureAppearance.appearanceType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(signatureType, signatureId);
+    return Objects.hash(appearanceType);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DeleteOptions {\n");
+    sb.append("class SignatureAppearance {\n");
     
-    sb.append("    signatureType: ").append(toIndentedString(signatureType)).append("\n");
-    sb.append("    signatureId: ").append(toIndentedString(signatureId)).append("\n");
+    sb.append("    appearanceType: ").append(toIndentedString(appearanceType)).append("\n");
     sb.append("}");
     return sb.toString();
   }

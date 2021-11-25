@@ -5,7 +5,7 @@
     <artifactId>groupdocs-signature-cloud-android</artifactId>
     <packaging>jar</packaging>
     <name>groupdocs-signature-cloud-android</name>
-    <version>20.7</version>
+    <version>21.11</version>
     <url>https://github.com/groupdocs-signature-cloud/groupdocs-signature-cloud-android</url>
     <description>Java library for communicating with the GroupDocs.Signature Cloud API</description>
     <scm>
