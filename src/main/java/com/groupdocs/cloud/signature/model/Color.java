@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="Color.java">
- *   Copyright (c) 2003-2021 Aspose Pty Ltd
+ *   Copyright (c) 2003-2022 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -45,6 +45,9 @@ public class Color {
   @SerializedName("web")
   private String web = null;
 
+  @SerializedName("alpha")
+  private Integer alpha = null;
+
   public Color web(String web) {
     this.web = web;
     return this;
@@ -63,6 +66,24 @@ public class Color {
     this.web = web;
   }
 
+  public Color alpha(Integer alpha) {
+    this.alpha = alpha;
+    return this;
+  }
+
+   /**
+   * Alpha component of color structure
+   * @return alpha
+  **/
+  @ApiModelProperty(required = true, value = "Alpha component of color structure")
+  public Integer getAlpha() {
+    return alpha;
+  }
+
+  public void setAlpha(Integer alpha) {
+    this.alpha = alpha;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -73,12 +94,13 @@ public class Color {
       return false;
     }
     Color color = (Color) o;
-    return Objects.equals(this.web, color.web);
+    return Objects.equals(this.web, color.web) &&
+        Objects.equals(this.alpha, color.alpha);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(web);
+    return Objects.hash(web, alpha);
   }
 
 
@@ -88,6 +110,7 @@ public class Color {
     sb.append("class Color {\n");
     
     sb.append("    web: ").append(toIndentedString(web)).append("\n");
+    sb.append("    alpha: ").append(toIndentedString(alpha)).append("\n");
     sb.append("}");
     return sb.toString();
   }

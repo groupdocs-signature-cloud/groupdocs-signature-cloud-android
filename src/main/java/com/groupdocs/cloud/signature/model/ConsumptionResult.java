@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose Pty Ltd" file="FileInfo.java">
+ * <copyright company="Aspose Pty Ltd" file="ConsumptionResult.java">
  *   Copyright (c) 2003-2022 Aspose Pty Ltd
  * </copyright>
  * <summary>
@@ -36,94 +36,53 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.math.BigDecimal;
 
 /**
- * File info
+ * Metered license consumption information
  */
-@ApiModel(description = "File info")
-public class FileInfo {
-  @SerializedName("filePath")
-  private String filePath = null;
+@ApiModel(description = "Metered license consumption information")
+public class ConsumptionResult {
+  @SerializedName("credit")
+  private BigDecimal credit = null;
 
-  @SerializedName("storageName")
-  private String storageName = null;
+  @SerializedName("quantity")
+  private BigDecimal quantity = null;
 
-  @SerializedName("versionId")
-  private String versionId = null;
-
-  @SerializedName("password")
-  private String password = null;
-
-  public FileInfo filePath(String filePath) {
-    this.filePath = filePath;
+  public ConsumptionResult credit(BigDecimal credit) {
+    this.credit = credit;
     return this;
   }
 
    /**
-   * File path in storage
-   * @return filePath
+   * Amount of used credits
+   * @return credit
   **/
-  @ApiModelProperty(value = "File path in storage")
-  public String getFilePath() {
-    return filePath;
+  @ApiModelProperty(required = true, value = "Amount of used credits")
+  public BigDecimal getCredit() {
+    return credit;
   }
 
-  public void setFilePath(String filePath) {
-    this.filePath = filePath;
+  public void setCredit(BigDecimal credit) {
+    this.credit = credit;
   }
 
-  public FileInfo storageName(String storageName) {
-    this.storageName = storageName;
+  public ConsumptionResult quantity(BigDecimal quantity) {
+    this.quantity = quantity;
     return this;
   }
 
    /**
-   * Storage name
-   * @return storageName
+   * Amount of MBs processed
+   * @return quantity
   **/
-  @ApiModelProperty(value = "Storage name")
-  public String getStorageName() {
-    return storageName;
+  @ApiModelProperty(required = true, value = "Amount of MBs processed")
+  public BigDecimal getQuantity() {
+    return quantity;
   }
 
-  public void setStorageName(String storageName) {
-    this.storageName = storageName;
-  }
-
-  public FileInfo versionId(String versionId) {
-    this.versionId = versionId;
-    return this;
-  }
-
-   /**
-   * Version ID
-   * @return versionId
-  **/
-  @ApiModelProperty(value = "Version ID")
-  public String getVersionId() {
-    return versionId;
-  }
-
-  public void setVersionId(String versionId) {
-    this.versionId = versionId;
-  }
-
-  public FileInfo password(String password) {
-    this.password = password;
-    return this;
-  }
-
-   /**
-   * Password to open file
-   * @return password
-  **/
-  @ApiModelProperty(value = "Password to open file")
-  public String getPassword() {
-    return password;
-  }
-
-  public void setPassword(String password) {
-    this.password = password;
+  public void setQuantity(BigDecimal quantity) {
+    this.quantity = quantity;
   }
 
 
@@ -135,28 +94,24 @@ public class FileInfo {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FileInfo fileInfo = (FileInfo) o;
-    return Objects.equals(this.filePath, fileInfo.filePath) &&
-        Objects.equals(this.storageName, fileInfo.storageName) &&
-        Objects.equals(this.versionId, fileInfo.versionId) &&
-        Objects.equals(this.password, fileInfo.password);
+    ConsumptionResult consumptionResult = (ConsumptionResult) o;
+    return Objects.equals(this.credit, consumptionResult.credit) &&
+        Objects.equals(this.quantity, consumptionResult.quantity);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(filePath, storageName, versionId, password);
+    return Objects.hash(credit, quantity);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class FileInfo {\n");
+    sb.append("class ConsumptionResult {\n");
     
-    sb.append("    filePath: ").append(toIndentedString(filePath)).append("\n");
-    sb.append("    storageName: ").append(toIndentedString(storageName)).append("\n");
-    sb.append("    versionId: ").append(toIndentedString(versionId)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
+    sb.append("    credit: ").append(toIndentedString(credit)).append("\n");
+    sb.append("    quantity: ").append(toIndentedString(quantity)).append("\n");
     sb.append("}");
     return sb.toString();
   }

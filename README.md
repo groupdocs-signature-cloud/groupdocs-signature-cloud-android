@@ -25,7 +25,7 @@ repositories {
 ...
 dependencies {
     ...
-    implementation 'com.groupdocs:groupdocs-signature-cloud:21.11'
+    implementation 'com.groupdocs:groupdocs-signature-cloud:22.6'
 }
 ```
 
