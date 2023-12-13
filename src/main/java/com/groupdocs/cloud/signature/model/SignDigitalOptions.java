@@ -34,6 +34,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.groupdocs.cloud.signature.model.BorderLine;
+import com.groupdocs.cloud.signature.model.DigitalVBA;
 import com.groupdocs.cloud.signature.model.Padding;
 import com.groupdocs.cloud.signature.model.PagesSetup;
 import com.groupdocs.cloud.signature.model.SignImageOptions;
@@ -114,6 +115,9 @@ public class SignDigitalOptions extends SignImageOptions {
 
   @SerializedName("xadESType")
   private XadESTypeEnum xadESType = null;
+
+  @SerializedName("digitalVBA")
+  private DigitalVBA digitalVBA = null;
 
   public SignDigitalOptions reason(String reason) {
     this.reason = reason;
@@ -241,6 +245,24 @@ public class SignDigitalOptions extends SignImageOptions {
     this.xadESType = xadESType;
   }
 
+  public SignDigitalOptions digitalVBA(DigitalVBA digitalVBA) {
+    this.digitalVBA = digitalVBA;
+    return this;
+  }
+
+   /**
+   * Options for signing VBA project
+   * @return digitalVBA
+  **/
+  @ApiModelProperty(value = "Options for signing VBA project")
+  public DigitalVBA getDigitalVBA() {
+    return digitalVBA;
+  }
+
+  public void setDigitalVBA(DigitalVBA digitalVBA) {
+    this.digitalVBA = digitalVBA;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -258,12 +280,13 @@ public class SignDigitalOptions extends SignImageOptions {
         Objects.equals(this.password, signDigitalOptions.password) &&
         Objects.equals(this.certificateFilePath, signDigitalOptions.certificateFilePath) &&
         Objects.equals(this.xadESType, signDigitalOptions.xadESType) &&
+        Objects.equals(this.digitalVBA, signDigitalOptions.digitalVBA) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(reason, contact, location, visible, password, certificateFilePath, xadESType, super.hashCode());
+    return Objects.hash(reason, contact, location, visible, password, certificateFilePath, xadESType, digitalVBA, super.hashCode());
   }
 
 
@@ -279,6 +302,7 @@ public class SignDigitalOptions extends SignImageOptions {
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    certificateFilePath: ").append(toIndentedString(certificateFilePath)).append("\n");
     sb.append("    xadESType: ").append(toIndentedString(xadESType)).append("\n");
+    sb.append("    digitalVBA: ").append(toIndentedString(digitalVBA)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -7,5 +7,5 @@ public class Config {
      */
     public static String AppSID = "signature.cloud";
     public static String AppKey = "signature.cloud";
-    public static String ApiBaseUrl = "https://api-qa.groupdocs.cloud";
+    public static String ApiBaseUrl = "https://signature.qa.groupdocs.cloud";
 }
