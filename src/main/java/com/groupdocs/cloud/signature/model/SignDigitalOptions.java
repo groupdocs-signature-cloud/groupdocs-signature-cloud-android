@@ -42,6 +42,7 @@ import com.groupdocs.cloud.signature.model.SignatureAppearance;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import org.threeten.bp.OffsetDateTime;
 
 /**
  * Represents the Digital sign options
@@ -118,6 +119,12 @@ public class SignDigitalOptions extends SignImageOptions {
 
   @SerializedName("digitalVBA")
   private DigitalVBA digitalVBA = null;
+
+  @SerializedName("signTime")
+  private OffsetDateTime signTime = null;
+
+  @SerializedName("comments")
+  private String comments = null;
 
   public SignDigitalOptions reason(String reason) {
     this.reason = reason;
@@ -263,6 +270,42 @@ public class SignDigitalOptions extends SignImageOptions {
     this.digitalVBA = digitalVBA;
   }
 
+  public SignDigitalOptions signTime(OffsetDateTime signTime) {
+    this.signTime = signTime;
+    return this;
+  }
+
+   /**
+   * The time the document was signed.
+   * @return signTime
+  **/
+  @ApiModelProperty(value = "The time the document was signed.")
+  public OffsetDateTime getSignTime() {
+    return signTime;
+  }
+
+  public void setSignTime(OffsetDateTime signTime) {
+    this.signTime = signTime;
+  }
+
+  public SignDigitalOptions comments(String comments) {
+    this.comments = comments;
+    return this;
+  }
+
+   /**
+   * The signing purpose comment.
+   * @return comments
+  **/
+  @ApiModelProperty(value = "The signing purpose comment.")
+  public String getComments() {
+    return comments;
+  }
+
+  public void setComments(String comments) {
+    this.comments = comments;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -281,12 +324,14 @@ public class SignDigitalOptions extends SignImageOptions {
         Objects.equals(this.certificateFilePath, signDigitalOptions.certificateFilePath) &&
         Objects.equals(this.xadESType, signDigitalOptions.xadESType) &&
         Objects.equals(this.digitalVBA, signDigitalOptions.digitalVBA) &&
+        Objects.equals(this.signTime, signDigitalOptions.signTime) &&
+        Objects.equals(this.comments, signDigitalOptions.comments) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(reason, contact, location, visible, password, certificateFilePath, xadESType, digitalVBA, super.hashCode());
+    return Objects.hash(reason, contact, location, visible, password, certificateFilePath, xadESType, digitalVBA, signTime, comments, super.hashCode());
   }
 
 
@@ -303,6 +348,8 @@ public class SignDigitalOptions extends SignImageOptions {
     sb.append("    certificateFilePath: ").append(toIndentedString(certificateFilePath)).append("\n");
     sb.append("    xadESType: ").append(toIndentedString(xadESType)).append("\n");
     sb.append("    digitalVBA: ").append(toIndentedString(digitalVBA)).append("\n");
+    sb.append("    signTime: ").append(toIndentedString(signTime)).append("\n");
+    sb.append("    comments: ").append(toIndentedString(comments)).append("\n");
     sb.append("}");
     return sb.toString();
   }
