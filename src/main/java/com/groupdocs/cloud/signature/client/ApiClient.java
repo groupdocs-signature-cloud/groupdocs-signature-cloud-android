@@ -62,7 +62,6 @@ import java.util.regex.Pattern;
 
 import com.groupdocs.cloud.signature.client.auth.Authentication;
 import com.groupdocs.cloud.signature.client.auth.OAuth;
-import com.groupdocs.cloud.signature.model.ApiError;
 import com.groupdocs.cloud.signature.model.AuthError;
 
 public class ApiClient {
@@ -97,7 +96,7 @@ public class ApiClient {
         this.json = new JSON();
 
         // Set default User-Agent.
-        setUserAgent("java-sdk/24.4");
+        setUserAgent("java-sdk/24.6");
 
         // Set connection timeout
         setConnectTimeout(configuration.getTimeout());
