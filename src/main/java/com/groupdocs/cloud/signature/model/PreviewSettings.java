@@ -52,6 +52,9 @@ public class PreviewSettings extends BaseSettings {
   @SerializedName("height")
   private Integer height = null;
 
+  @SerializedName("resolution")
+  private Integer resolution = null;
+
   @SerializedName("pageNumbers")
   private List<Integer> pageNumbers = null;
 
@@ -149,6 +152,24 @@ public class PreviewSettings extends BaseSettings {
     this.height = height;
   }
 
+  public PreviewSettings resolution(Integer resolution) {
+    this.resolution = resolution;
+    return this;
+  }
+
+   /**
+   * Gets or sets the resolution of the preview images in DPI (dots per inch).
+   * @return resolution
+  **/
+  @ApiModelProperty(required = true, value = "Gets or sets the resolution of the preview images in DPI (dots per inch).")
+  public Integer getResolution() {
+    return resolution;
+  }
+
+  public void setResolution(Integer resolution) {
+    this.resolution = resolution;
+  }
+
   public PreviewSettings pageNumbers(List<Integer> pageNumbers) {
     this.pageNumbers = pageNumbers;
     return this;
@@ -241,6 +262,7 @@ public class PreviewSettings extends BaseSettings {
     PreviewSettings previewSettings = (PreviewSettings) o;
     return Objects.equals(this.width, previewSettings.width) &&
         Objects.equals(this.height, previewSettings.height) &&
+        Objects.equals(this.resolution, previewSettings.resolution) &&
         Objects.equals(this.pageNumbers, previewSettings.pageNumbers) &&
         Objects.equals(this.previewFormat, previewSettings.previewFormat) &&
         Objects.equals(this.hideSignatures, previewSettings.hideSignatures) &&
@@ -250,7 +272,7 @@ public class PreviewSettings extends BaseSettings {
 
   @Override
   public int hashCode() {
-    return Objects.hash(width, height, pageNumbers, previewFormat, hideSignatures, outputPath, super.hashCode());
+    return Objects.hash(width, height, resolution, pageNumbers, previewFormat, hideSignatures, outputPath, super.hashCode());
   }
 
 
@@ -261,6 +283,7 @@ public class PreviewSettings extends BaseSettings {
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    width: ").append(toIndentedString(width)).append("\n");
     sb.append("    height: ").append(toIndentedString(height)).append("\n");
+    sb.append("    resolution: ").append(toIndentedString(resolution)).append("\n");
     sb.append("    pageNumbers: ").append(toIndentedString(pageNumbers)).append("\n");
     sb.append("    previewFormat: ").append(toIndentedString(previewFormat)).append("\n");
     sb.append("    hideSignatures: ").append(toIndentedString(hideSignatures)).append("\n");

@@ -148,7 +148,7 @@ public class TestsSearchBarcode extends BaseApiTest {
         options.setPagesSetup(pagesSetup);
 
         options.setSignatureType(SignatureTypeEnum.BARCODE);
-        options.setBarcodeType("Code39Standard");
+        options.setBarcodeType("Code39");
         options.setText("123456789012");
         options.setMatchType(MatchTypeEnum.CONTAINS);
     }
