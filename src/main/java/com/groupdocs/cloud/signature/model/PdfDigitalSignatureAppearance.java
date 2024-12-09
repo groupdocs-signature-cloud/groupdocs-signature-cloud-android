@@ -47,6 +47,9 @@ public class PdfDigitalSignatureAppearance extends SignatureAppearance {
   @SerializedName("background")
   private Color background = null;
 
+  @SerializedName("foreground")
+  private Color foreground = null;
+
   @SerializedName("contactInfoLabel")
   private String contactInfoLabel = null;
 
@@ -74,16 +77,34 @@ public class PdfDigitalSignatureAppearance extends SignatureAppearance {
   }
 
    /**
-   * Get or set background color of signature appearance. By default the value is SystemColors.Windows
+   * Get or set background color of signature appearance. 
    * @return background
   **/
-  @ApiModelProperty(value = "Get or set background color of signature appearance. By default the value is SystemColors.Windows")
+  @ApiModelProperty(value = "Get or set background color of signature appearance. ")
   public Color getBackground() {
     return background;
   }
 
   public void setBackground(Color background) {
     this.background = background;
+  }
+
+  public PdfDigitalSignatureAppearance foreground(Color foreground) {
+    this.foreground = foreground;
+    return this;
+  }
+
+   /**
+   * Get or set foreground text color of signature appearance. By default the value is Color.FromArgb(76, 100, 255)
+   * @return foreground
+  **/
+  @ApiModelProperty(value = "Get or set foreground text color of signature appearance. By default the value is Color.FromArgb(76, 100, 255)")
+  public Color getForeground() {
+    return foreground;
+  }
+
+  public void setForeground(Color foreground) {
+    this.foreground = foreground;
   }
 
   public PdfDigitalSignatureAppearance contactInfoLabel(String contactInfoLabel) {
@@ -223,6 +244,7 @@ public class PdfDigitalSignatureAppearance extends SignatureAppearance {
     }
     PdfDigitalSignatureAppearance pdfDigitalSignatureAppearance = (PdfDigitalSignatureAppearance) o;
     return Objects.equals(this.background, pdfDigitalSignatureAppearance.background) &&
+        Objects.equals(this.foreground, pdfDigitalSignatureAppearance.foreground) &&
         Objects.equals(this.contactInfoLabel, pdfDigitalSignatureAppearance.contactInfoLabel) &&
         Objects.equals(this.dateSignedAtLabel, pdfDigitalSignatureAppearance.dateSignedAtLabel) &&
         Objects.equals(this.digitalSignedLabel, pdfDigitalSignatureAppearance.digitalSignedLabel) &&
@@ -235,7 +257,7 @@ public class PdfDigitalSignatureAppearance extends SignatureAppearance {
 
   @Override
   public int hashCode() {
-    return Objects.hash(background, contactInfoLabel, dateSignedAtLabel, digitalSignedLabel, fontFamilyName, fontSize, locationLabel, reasonLabel, super.hashCode());
+    return Objects.hash(background, foreground, contactInfoLabel, dateSignedAtLabel, digitalSignedLabel, fontFamilyName, fontSize, locationLabel, reasonLabel, super.hashCode());
   }
 
 
@@ -245,6 +267,7 @@ public class PdfDigitalSignatureAppearance extends SignatureAppearance {
     sb.append("class PdfDigitalSignatureAppearance {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    background: ").append(toIndentedString(background)).append("\n");
+    sb.append("    foreground: ").append(toIndentedString(foreground)).append("\n");
     sb.append("    contactInfoLabel: ").append(toIndentedString(contactInfoLabel)).append("\n");
     sb.append("    dateSignedAtLabel: ").append(toIndentedString(dateSignedAtLabel)).append("\n");
     sb.append("    digitalSignedLabel: ").append(toIndentedString(digitalSignedLabel)).append("\n");
