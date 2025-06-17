@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="OAuth.java">
- *   Copyright (c) 2003-2023 Aspose Pty Ltd
+ *   Copyright (c) Aspose Pty Ltd
  * </copyright>
  * <summary>
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -32,7 +32,6 @@ import com.groupdocs.cloud.signature.client.Configuration;
 import com.groupdocs.cloud.signature.client.JSON;
 import com.groupdocs.cloud.signature.client.Pair;
 import com.squareup.okhttp.*;
-import com.squareup.okhttp.OkHttpClient;
 
 import java.util.concurrent.TimeUnit;
 import com.google.gson.annotations.SerializedName;
@@ -73,7 +72,8 @@ public class OAuth implements Authentication {
 
     this.httpClient = new OkHttpClient();
     this.httpClient.setConnectTimeout(configuration.getTimeout(), TimeUnit.MILLISECONDS);
-
+    this.httpClient.setReadTimeout(configuration.getTimeout(), TimeUnit.MILLISECONDS);
+    this.httpClient.setWriteTimeout(configuration.getTimeout(), TimeUnit.MILLISECONDS);
     this.json = new JSON();
   }
 

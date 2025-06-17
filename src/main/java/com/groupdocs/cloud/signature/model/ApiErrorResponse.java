@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose Pty Ltd" file="VerifySettings.java">
+ * <copyright company="Aspose Pty Ltd" file="ApiErrorResponse.java">
  *   Copyright (c) Aspose Pty Ltd
  * </copyright>
  * <summary>
@@ -33,47 +33,55 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.groupdocs.cloud.signature.model.BaseSettings;
-import com.groupdocs.cloud.signature.model.FileInfo;
-import com.groupdocs.cloud.signature.model.VerifyOptions;
+import com.groupdocs.cloud.signature.model.ApiError;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
- * Defines verify settings request
+ * ApiErrorResponse
  */
-@ApiModel(description = "Defines verify settings request")
-public class VerifySettings extends BaseSettings {
-  @SerializedName("options")
-  private List<VerifyOptions> options = null;
+public class ApiErrorResponse {
+  @SerializedName("requestId")
+  private String requestId = null;
 
-  public VerifySettings options(List<VerifyOptions> options) {
-    this.options = options;
-    return this;
-  }
+  @SerializedName("error")
+  private ApiError error = null;
 
-  public VerifySettings addOptionsItem(VerifyOptions optionsItem) {
-    if (this.options == null) {
-      this.options = new ArrayList<VerifyOptions>();
-    }
-    this.options.add(optionsItem);
+  public ApiErrorResponse requestId(String requestId) {
+    this.requestId = requestId;
     return this;
   }
 
    /**
-   * Gets or sets options to perform document verification
-   * @return options
+   * Get requestId
+   * @return requestId
   **/
-  @ApiModelProperty(value = "Gets or sets options to perform document verification")
-  public List<VerifyOptions> getOptions() {
-    return options;
+  @ApiModelProperty(value = "")
+  public String getRequestId() {
+    return requestId;
   }
 
-  public void setOptions(List<VerifyOptions> options) {
-    this.options = options;
+  public void setRequestId(String requestId) {
+    this.requestId = requestId;
+  }
+
+  public ApiErrorResponse error(ApiError error) {
+    this.error = error;
+    return this;
+  }
+
+   /**
+   * Get error
+   * @return error
+  **/
+  @ApiModelProperty(value = "")
+  public ApiError getError() {
+    return error;
+  }
+
+  public void setError(ApiError error) {
+    this.error = error;
   }
 
 
@@ -85,23 +93,24 @@ public class VerifySettings extends BaseSettings {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    VerifySettings verifySettings = (VerifySettings) o;
-    return Objects.equals(this.options, verifySettings.options) &&
-        super.equals(o);
+    ApiErrorResponse apiErrorResponse = (ApiErrorResponse) o;
+    return Objects.equals(this.requestId, apiErrorResponse.requestId) &&
+        Objects.equals(this.error, apiErrorResponse.error);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(options, super.hashCode());
+    return Objects.hash(requestId, error);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class VerifySettings {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    options: ").append(toIndentedString(options)).append("\n");
+    sb.append("class ApiErrorResponse {\n");
+    
+    sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
+    sb.append("    error: ").append(toIndentedString(error)).append("\n");
     sb.append("}");
     return sb.toString();
   }
