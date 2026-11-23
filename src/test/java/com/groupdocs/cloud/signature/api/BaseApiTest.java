@@ -31,6 +31,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -131,10 +132,11 @@ public class BaseApiTest {
     private Path GetTestDataPath()
     {
         URL location = BaseApiTest.class.getProtectionDomain().getCodeSource().getLocation();
-        Path path = Paths.get(location.getPath().replaceFirst("/", ""));
-        path = path.getParent().getParent();
-        path = path.resolve("TestData");
-        return path;
+        try {
+            return Paths.get(location.toURI()).getParent().getParent().resolve("TestData");
+        } catch (URISyntaxException ex) {
+            throw new IllegalStateException("Unable to resolve the test data directory.", ex);
+        }
     }
 
     private void ClearFolder(File folder) {

@@ -77,9 +77,6 @@ public class TestsVerifyCollection extends BaseApiTest {
         VerifyBarcodeOptions optionsBarcode = new VerifyBarcodeOptions();
         TestsVerifyBarcode.PopulateOptions(optionsBarcode);
 
-        VerifyDigitalOptions optionsDigital = new VerifyDigitalOptions();
-        TestsVerifyDigital.PopulateOptions(optionsDigital);
-
         VerifyQRCodeOptions optionsQRCode = new VerifyQRCodeOptions();
         TestsVerifyQRCode.PopulateOptions(optionsQRCode);
 
@@ -89,7 +86,6 @@ public class TestsVerifyCollection extends BaseApiTest {
         VerifySettings VerifySettings = new VerifySettings();
         VerifySettings.setFileInfo(fileInfo);
         VerifySettings.addOptionsItem(optionsBarcode);
-        VerifySettings.addOptionsItem(optionsDigital);
         VerifySettings.addOptionsItem(optionsQRCode);
         VerifySettings.addOptionsItem(optionsText);
         VerifySignaturesRequest request = new VerifySignaturesRequest(VerifySettings);

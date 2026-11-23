@@ -73,7 +73,7 @@ public class TestSignatureGetFileInfo extends BaseApiTest {
             infoApi.getInfo(request);
             fail("Expected ApiException was not thrown.");
         } catch (ApiException ex) {
-            assertEquals("Can't find file located at 'some-folder\\NotExist.docx'.", ex.getMessage());
+            assertEquals("Can't find file located at 'some-folder/NotExist.docx'.", ex.getMessage());
         }  
     }    
 }  

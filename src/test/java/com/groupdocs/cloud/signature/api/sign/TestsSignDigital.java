@@ -52,7 +52,7 @@ public class TestsSignDigital extends BaseApiTest {
         // Set request
         TestFile testFile = TestFiles.PdfStorage.get(0);
         FileInfo fileInfo = testFile.ToFileInfo();
-        String signedFileName = "Output\\PdfDigitalSigned." + testFile.extension;
+        String signedFileName = "Output/PdfDigitalSigned." + testFile.extension;
 
         SignDigitalOptions options = new SignDigitalOptions();
         PopulateOptions(options);
@@ -84,7 +84,7 @@ public class TestsSignDigital extends BaseApiTest {
         // Set request
         TestFile testFile = TestFiles.SpreadsheetStorage.get(0);
         FileInfo fileInfo = testFile.ToFileInfo();
-        String signedFileName = "Output\\SpreadsheetDigitalSigned." + testFile.extension;
+        String signedFileName = "Output/SpreadsheetDigitalSigned." + testFile.extension;
 
         SignDigitalOptions options = new SignDigitalOptions();
         PopulateOptions(options);
@@ -110,7 +110,7 @@ public class TestsSignDigital extends BaseApiTest {
         // Set request
         TestFile testFile = TestFiles.WordProcessingStorage.get(0);
         FileInfo fileInfo = testFile.ToFileInfo();
-        String signedFileName = "Output\\WordProcessingDigitalSigned." + testFile.extension;
+        String signedFileName = "Output/WordProcessingDigitalSigned." + testFile.extension;
 
         SignDigitalOptions options = new SignDigitalOptions();
         PopulateOptions(options);
@@ -135,8 +135,8 @@ public class TestsSignDigital extends BaseApiTest {
         options.setSignatureType(SignatureTypeEnum.DIGITAL);
 
         // set signature properties
-        options.setImageFilePath("Additional\\signature_01.jpg");
-        options.setCertificateFilePath("Additional\\SherlockHolmes.pfx");
+        options.setImageFilePath("Additional/signature_01.jpg");
+        options.setCertificateFilePath("Additional/TestCertificate.pfx");
         options.setPassword("1234567890");
 
         // set signature position on a page

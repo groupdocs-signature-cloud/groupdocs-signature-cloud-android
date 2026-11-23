@@ -46,7 +46,7 @@ public class TestsSignImage extends BaseApiTest {
         // Set request
         TestFile testFile = TestFiles.ImageStorage.get(0);
         FileInfo fileInfo = testFile.ToFileInfo();
-        String signedFileName = "Output\\ImageImageSigned." + testFile.extension;
+        String signedFileName = "Output/ImageImageSigned." + testFile.extension;
 
         SignImageOptions options = new SignImageOptions();
         PopulateOptions(options);
@@ -72,7 +72,7 @@ public class TestsSignImage extends BaseApiTest {
         // Set request
         TestFile testFile = TestFiles.PdfStorage.get(0);
         FileInfo fileInfo = testFile.ToFileInfo();
-        String signedFileName = "Output\\PdfImageSigned." + testFile.extension;
+        String signedFileName = "Output/PdfImageSigned." + testFile.extension;
 
         SignImageOptions options = new SignImageOptions();
         PopulateOptions(options);
@@ -98,7 +98,7 @@ public class TestsSignImage extends BaseApiTest {
         // Set request
         TestFile testFile = TestFiles.PresentationStorage.get(0);
         FileInfo fileInfo = testFile.ToFileInfo();
-        String signedFileName = "Output\\PresentationImageSigned." + testFile.extension;
+        String signedFileName = "Output/PresentationImageSigned." + testFile.extension;
 
         SignImageOptions options = new SignImageOptions();
         PopulateOptions(options);
@@ -124,7 +124,7 @@ public class TestsSignImage extends BaseApiTest {
         // Set request
         TestFile testFile = TestFiles.SpreadsheetStorage.get(0);
         FileInfo fileInfo = testFile.ToFileInfo();
-        String signedFileName = "Output\\SpreadsheetImageSigned." + testFile.extension;
+        String signedFileName = "Output/SpreadsheetImageSigned." + testFile.extension;
 
         SignImageOptions options = new SignImageOptions();
         PopulateOptions(options);
@@ -150,7 +150,7 @@ public class TestsSignImage extends BaseApiTest {
         // Set request
         TestFile testFile = TestFiles.WordProcessingStorage.get(0);
         FileInfo fileInfo = testFile.ToFileInfo();
-        String signedFileName = "Output\\WordProcessingImageSigned." + testFile.extension;
+        String signedFileName = "Output/WordProcessingImageSigned." + testFile.extension;
 
         SignImageOptions options = new SignImageOptions();
         PopulateOptions(options);
@@ -175,7 +175,7 @@ public class TestsSignImage extends BaseApiTest {
         options.setSignatureType(SignatureTypeEnum.IMAGE);
 
         // set signature properties
-        options.setImageFilePath("Additional\\JohnSmithSign.png");
+        options.setImageFilePath("Additional/JohnSmithSign.png");
 
         // set signature position on a page
         options.setLeft(100);

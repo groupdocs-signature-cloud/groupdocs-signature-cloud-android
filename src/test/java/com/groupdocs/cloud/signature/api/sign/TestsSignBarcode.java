@@ -48,7 +48,7 @@ public class TestsSignBarcode extends BaseApiTest {
         // Set request
         TestFile testFile = TestFiles.ImageStorage.get(0);
         FileInfo fileInfo = testFile.ToFileInfo();
-        String signedFileName = "Output\\ImageBarcodeSigned." + testFile.extension;
+        String signedFileName = "Output/ImageBarcodeSigned." + testFile.extension;
 
         SignBarcodeOptions options = new SignBarcodeOptions();
         PopulateOptions(options);
@@ -74,7 +74,7 @@ public class TestsSignBarcode extends BaseApiTest {
         // Set request
         TestFile testFile = TestFiles.PdfStorage.get(0);
         FileInfo fileInfo = testFile.ToFileInfo();
-        String signedFileName = "Output\\PdfBarcodeSigned." + testFile.extension;
+        String signedFileName = "Output/PdfBarcodeSigned." + testFile.extension;
 
         SignBarcodeOptions options = new SignBarcodeOptions();
         PopulateOptions(options);
@@ -100,7 +100,7 @@ public class TestsSignBarcode extends BaseApiTest {
         // Set request
         TestFile testFile = TestFiles.PresentationStorage.get(0);
         FileInfo fileInfo = testFile.ToFileInfo();
-        String signedFileName = "Output\\PresentationBarcodeSigned." + testFile.extension;
+        String signedFileName = "Output/PresentationBarcodeSigned." + testFile.extension;
 
         SignBarcodeOptions options = new SignBarcodeOptions();
         PopulateOptions(options);
@@ -126,7 +126,7 @@ public class TestsSignBarcode extends BaseApiTest {
         // Set request
         TestFile testFile = TestFiles.SpreadsheetStorage.get(0);
         FileInfo fileInfo = testFile.ToFileInfo();
-        String signedFileName = "Output\\SpreadsheetBarcodeSigned." + testFile.extension;
+        String signedFileName = "Output/SpreadsheetBarcodeSigned." + testFile.extension;
 
         SignBarcodeOptions options = new SignBarcodeOptions();
         PopulateOptions(options);
@@ -152,7 +152,7 @@ public class TestsSignBarcode extends BaseApiTest {
         // Set request
         TestFile testFile = TestFiles.WordProcessingStorage.get(0);
         FileInfo fileInfo = testFile.ToFileInfo();
-        String signedFileName = "Output\\WordProcessingBarcodeSigned." + testFile.extension;
+        String signedFileName = "Output/WordProcessingBarcodeSigned." + testFile.extension;
 
         SignBarcodeOptions options = new SignBarcodeOptions();
         PopulateOptions(options);

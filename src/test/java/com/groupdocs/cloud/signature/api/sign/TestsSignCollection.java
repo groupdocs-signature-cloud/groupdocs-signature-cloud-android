@@ -44,7 +44,7 @@ public class TestsSignCollection extends BaseApiTest {
         // Set request
         TestFile testFile = TestFiles.ImageStorage.get(0);
         FileInfo fileInfo = testFile.ToFileInfo();
-        String signedFileName = "Output\\ImageCollectionSigned." + testFile.extension;
+        String signedFileName = "Output/ImageCollectionSigned." + testFile.extension;
 
         SignBarcodeOptions barcodeOptions = new SignBarcodeOptions();
         TestsSignBarcode.PopulateOptions(barcodeOptions);
@@ -95,7 +95,7 @@ public class TestsSignCollection extends BaseApiTest {
         // Set request
         TestFile testFile = TestFiles.PdfStorage.get(0);
         FileInfo fileInfo = testFile.ToFileInfo();
-        String signedFileName = "Output\\PdfCollectionSigned." + testFile.extension;
+        String signedFileName = "Output/PdfCollectionSigned." + testFile.extension;
 
         SignBarcodeOptions barcodeOptions = new SignBarcodeOptions();
         TestsSignBarcode.PopulateOptions(barcodeOptions);
@@ -149,7 +149,7 @@ public class TestsSignCollection extends BaseApiTest {
         // Set request
         TestFile testFile = TestFiles.PresentationStorage.get(0);
         FileInfo fileInfo = testFile.ToFileInfo();
-        String signedFileName = "Output\\PresentationCollectionSigned." + testFile.extension;
+        String signedFileName = "Output/PresentationCollectionSigned." + testFile.extension;
 
         SignBarcodeOptions barcodeOptions = new SignBarcodeOptions();
         TestsSignBarcode.PopulateOptions(barcodeOptions);
@@ -200,7 +200,7 @@ public class TestsSignCollection extends BaseApiTest {
         // Set request
         TestFile testFile = TestFiles.SpreadsheetStorage.get(0);
         FileInfo fileInfo = testFile.ToFileInfo();
-        String signedFileName = "Output\\SpreadsheetCollectionSigned." + testFile.extension;
+        String signedFileName = "Output/SpreadsheetCollectionSigned." + testFile.extension;
 
         SignBarcodeOptions barcodeOptions = new SignBarcodeOptions();
         TestsSignBarcode.PopulateOptions(barcodeOptions);
@@ -254,7 +254,7 @@ public class TestsSignCollection extends BaseApiTest {
         // Set request
         TestFile testFile = TestFiles.WordProcessingStorage.get(0);
         FileInfo fileInfo = testFile.ToFileInfo();
-        String signedFileName = "Output\\WordProcessingCollectionSigned." + testFile.extension;
+        String signedFileName = "Output/WordProcessingCollectionSigned." + testFile.extension;
 
         SignBarcodeOptions barcodeOptions = new SignBarcodeOptions();
         TestsSignBarcode.PopulateOptions(barcodeOptions);

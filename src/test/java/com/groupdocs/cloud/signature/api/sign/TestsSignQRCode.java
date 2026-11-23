@@ -48,7 +48,7 @@ public class TestsSignQRCode extends BaseApiTest {
         // Set request
         TestFile testFile = TestFiles.ImageStorage.get(0);
         FileInfo fileInfo = testFile.ToFileInfo();
-        String signedFileName = "Output\\ImageQRCodeSigned." + testFile.extension;
+        String signedFileName = "Output/ImageQRCodeSigned." + testFile.extension;
 
         SignQRCodeOptions options = new SignQRCodeOptions();
         PopulateOptions(options);
@@ -74,7 +74,7 @@ public class TestsSignQRCode extends BaseApiTest {
         // Set request
         TestFile testFile = TestFiles.PdfStorage.get(0);
         FileInfo fileInfo = testFile.ToFileInfo();
-        String signedFileName = "Output\\PdfQRCodeSigned." + testFile.extension;
+        String signedFileName = "Output/PdfQRCodeSigned." + testFile.extension;
 
         SignQRCodeOptions options = new SignQRCodeOptions();
         PopulateOptions(options);
@@ -100,7 +100,7 @@ public class TestsSignQRCode extends BaseApiTest {
         // Set request
         TestFile testFile = TestFiles.PresentationStorage.get(0);
         FileInfo fileInfo = testFile.ToFileInfo();
-        String signedFileName = "Output\\PresentationQRCodeSigned." + testFile.extension;
+        String signedFileName = "Output/PresentationQRCodeSigned." + testFile.extension;
 
         SignQRCodeOptions options = new SignQRCodeOptions();
         PopulateOptions(options);
@@ -126,7 +126,7 @@ public class TestsSignQRCode extends BaseApiTest {
         // Set request
         TestFile testFile = TestFiles.SpreadsheetStorage.get(0);
         FileInfo fileInfo = testFile.ToFileInfo();
-        String signedFileName = "Output\\SpreadsheetQRCodeSigned." + testFile.extension;
+        String signedFileName = "Output/SpreadsheetQRCodeSigned." + testFile.extension;
 
         SignQRCodeOptions options = new SignQRCodeOptions();
         PopulateOptions(options);
@@ -152,7 +152,7 @@ public class TestsSignQRCode extends BaseApiTest {
         // Set request
         TestFile testFile = TestFiles.WordProcessingStorage.get(0);
         FileInfo fileInfo = testFile.ToFileInfo();
-        String signedFileName = "Output\\WordProcessingQRCodeSigned." + testFile.extension;
+        String signedFileName = "Output/WordProcessingQRCodeSigned." + testFile.extension;
 
         SignQRCodeOptions options = new SignQRCodeOptions();
         PopulateOptions(options);

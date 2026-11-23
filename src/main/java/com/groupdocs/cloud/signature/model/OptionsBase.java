@@ -64,7 +64,9 @@ public class OptionsBase {
     
     FORMFIELD("FormField"),
     
-    METADATA("Metadata");
+    METADATA("Metadata"),
+
+    IMAGEDIGITAL("ImageDigital");
 
     private String value;
 

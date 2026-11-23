@@ -49,7 +49,7 @@ public class TestsVerifyDigital extends BaseApiTest {
     public void VerifyDigitalPdf() throws ApiException
     {
         // Set request
-        TestFile testFile = TestFiles.PdfStorageSigned.get(0);
+        TestFile testFile = TestFiles.PdfStorageDigitalSigned.get(0);
         FileInfo fileInfo = testFile.ToFileInfo();
         VerifyDigitalOptions options = new VerifyDigitalOptions();
         PopulateOptions(options);

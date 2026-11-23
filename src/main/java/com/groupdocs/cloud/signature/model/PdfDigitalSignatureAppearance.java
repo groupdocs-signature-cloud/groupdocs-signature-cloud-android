@@ -71,6 +71,9 @@ public class PdfDigitalSignatureAppearance extends SignatureAppearance {
   @SerializedName("reasonLabel")
   private String reasonLabel = null;
 
+  @SerializedName("isForegroundImage")
+  private Boolean isForegroundImage = null;
+
   public PdfDigitalSignatureAppearance background(Color background) {
     this.background = background;
     return this;
@@ -233,6 +236,24 @@ public class PdfDigitalSignatureAppearance extends SignatureAppearance {
     this.reasonLabel = reasonLabel;
   }
 
+  public PdfDigitalSignatureAppearance isForegroundImage(Boolean isForegroundImage) {
+    this.isForegroundImage = isForegroundImage;
+    return this;
+  }
+
+   /**
+   * Gets or sets whether the signature image is drawn in front of the text.
+   * @return isForegroundImage
+  **/
+  @ApiModelProperty(required = true, value = "Gets or sets whether the signature image is drawn in front of the text.")
+  public Boolean getIsForegroundImage() {
+    return isForegroundImage;
+  }
+
+  public void setIsForegroundImage(Boolean isForegroundImage) {
+    this.isForegroundImage = isForegroundImage;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -252,12 +273,13 @@ public class PdfDigitalSignatureAppearance extends SignatureAppearance {
         Objects.equals(this.fontSize, pdfDigitalSignatureAppearance.fontSize) &&
         Objects.equals(this.locationLabel, pdfDigitalSignatureAppearance.locationLabel) &&
         Objects.equals(this.reasonLabel, pdfDigitalSignatureAppearance.reasonLabel) &&
+        Objects.equals(this.isForegroundImage, pdfDigitalSignatureAppearance.isForegroundImage) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(background, foreground, contactInfoLabel, dateSignedAtLabel, digitalSignedLabel, fontFamilyName, fontSize, locationLabel, reasonLabel, super.hashCode());
+    return Objects.hash(background, foreground, contactInfoLabel, dateSignedAtLabel, digitalSignedLabel, fontFamilyName, fontSize, locationLabel, reasonLabel, isForegroundImage, super.hashCode());
   }
 
 
@@ -275,6 +297,7 @@ public class PdfDigitalSignatureAppearance extends SignatureAppearance {
     sb.append("    fontSize: ").append(toIndentedString(fontSize)).append("\n");
     sb.append("    locationLabel: ").append(toIndentedString(locationLabel)).append("\n");
     sb.append("    reasonLabel: ").append(toIndentedString(reasonLabel)).append("\n");
+    sb.append("    isForegroundImage: ").append(toIndentedString(isForegroundImage)).append("\n");
     sb.append("}");
     return sb.toString();
   }

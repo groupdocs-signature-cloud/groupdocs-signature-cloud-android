@@ -47,7 +47,7 @@ public class TestsSignText extends BaseApiTest {
         // Set request
         TestFile testFile = TestFiles.ImageStorage.get(0);
         FileInfo fileInfo = testFile.ToFileInfo();
-        String signedFileName = "Output\\ImageTextSigned." + testFile.extension;
+        String signedFileName = "Output/ImageTextSigned." + testFile.extension;
 
         SignTextOptions options = new SignTextOptions();
         PopulateOptions(options);
@@ -73,7 +73,7 @@ public class TestsSignText extends BaseApiTest {
         // Set request
         TestFile testFile = TestFiles.PdfStorage.get(0);
         FileInfo fileInfo = testFile.ToFileInfo();
-        String signedFileName = "Output\\PdfTextSigned." + testFile.extension;
+        String signedFileName = "Output/PdfTextSigned." + testFile.extension;
 
         SignTextOptions options = new SignTextOptions();
         PopulateOptions(options);
@@ -99,7 +99,7 @@ public class TestsSignText extends BaseApiTest {
         // Set request
         TestFile testFile = TestFiles.PresentationStorage.get(0);
         FileInfo fileInfo = testFile.ToFileInfo();
-        String signedFileName = "Output\\PresentationTextSigned." + testFile.extension;
+        String signedFileName = "Output/PresentationTextSigned." + testFile.extension;
 
         SignTextOptions options = new SignTextOptions();
         PopulateOptions(options);
@@ -125,7 +125,7 @@ public class TestsSignText extends BaseApiTest {
         // Set request
         TestFile testFile = TestFiles.SpreadsheetStorage.get(0);
         FileInfo fileInfo = testFile.ToFileInfo();
-        String signedFileName = "Output\\SpreadsheetTextSigned." + testFile.extension;
+        String signedFileName = "Output/SpreadsheetTextSigned." + testFile.extension;
 
         SignTextOptions options = new SignTextOptions();
         PopulateOptions(options);
@@ -151,7 +151,7 @@ public class TestsSignText extends BaseApiTest {
         // Set request
         TestFile testFile = TestFiles.WordProcessingStorage.get(0);
         FileInfo fileInfo = testFile.ToFileInfo();
-        String signedFileName = "Output\\WordProcessingTextSigned." + testFile.extension;
+        String signedFileName = "Output/WordProcessingTextSigned." + testFile.extension;
 
         SignTextOptions options = new SignTextOptions();
         PopulateOptions(options);

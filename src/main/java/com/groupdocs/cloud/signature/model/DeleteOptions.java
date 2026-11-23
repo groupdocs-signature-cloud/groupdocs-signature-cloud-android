@@ -63,7 +63,9 @@ public class DeleteOptions {
     
     FORMFIELD("FormField"),
     
-    METADATA("Metadata");
+    METADATA("Metadata"),
+
+    IMAGEDIGITAL("ImageDigital");
 
     private String value;
 

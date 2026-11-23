@@ -44,7 +44,7 @@ import org.threeten.bp.OffsetDateTime;
 @ApiModel(description = "Describes base class for signatures")
 public class Signature {
   /**
-   * Specifies the signature type (Text, Image, Digital, Barcode, QRCode, Stamp)
+   * Specifies the signature type (Text, Image, Digital, ImageDigital, Barcode, QRCode, Stamp)
    */
   @JsonAdapter(SignatureTypeEnum.Adapter.class)
   public enum SignatureTypeEnum {
@@ -64,7 +64,9 @@ public class Signature {
     
     FORMFIELD("FormField"),
     
-    METADATA("Metadata");
+    METADATA("Metadata"),
+
+    IMAGEDIGITAL("ImageDigital");
 
     private String value;
 
@@ -140,10 +142,10 @@ public class Signature {
   }
 
    /**
-   * Specifies the signature type (Text, Image, Digital, Barcode, QRCode, Stamp)
+   * Specifies the signature type (Text, Image, Digital, ImageDigital, Barcode, QRCode, Stamp)
    * @return signatureType
   **/
-  @ApiModelProperty(required = true, value = "Specifies the signature type (Text, Image, Digital, Barcode, QRCode, Stamp)")
+  @ApiModelProperty(required = true, value = "Specifies the signature type (Text, Image, Digital, ImageDigital, Barcode, QRCode, Stamp)")
   public SignatureTypeEnum getSignatureType() {
     return signatureType;
   }
